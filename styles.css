@@ -1,6 +1,6 @@
 /* === Variables === */
 :root {
-    /* Brand Colors (RGB format for RGBA usage) */
+    /* Brand Colors */
     --deep-blue: #0A1A2F;
     --navy: #1A2A3F;
     --gold-rgb: 212, 175, 55;
@@ -10,18 +10,26 @@
     --red-rgb: 255, 59, 63;
     --red: rgb(var(--red-rgb));
     --black: #0F0F0F;
+    
+    /* Typography */
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
 }
+
+/* === Font Imports === */
+@import url('https://fonts.cdnfonts.com/css/beleren');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=IM+Fell+English+SC&display=swap');
 
 /* === Base Styles === */
 body {
     background: var(--black);
     color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
+    font-family: 'IM Fell English SC', serif;
     margin: 0;
     line-height: 1.6;
 }
 
-/* === Navigation (Centered) === */
+/* === Navigation === */
 .nav {
     background: var(--deep-blue);
     border-bottom: 1px solid rgba(var(--gold-rgb), 0.1);
@@ -47,14 +55,15 @@ body {
 }
 
 .nav-link {
-    color: var(--text-secondary);
+    color: var(--text-secondary) !important;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
+    font-size: 1.1rem;
 }
 
 .nav-link:hover {
-    color: var(--gold);
+    color: var(--gold) !important;
 }
 
 /* === Hero Section === */
@@ -72,7 +81,7 @@ body {
 }
 
 .hero-title {
-    font-family: 'Beleren', sans-serif;
+    font-family: 'Beleren', 'MedievalSharp', sans-serif;
     font-size: 3.5rem;
     color: var(--gold);
     display: flex;
@@ -82,206 +91,51 @@ body {
     margin: 0 0 1rem;
 }
 
-.hero-spark {
-    color: var(--red);
-    filter: drop-shadow(0 0 12px rgba(255, 59, 63, 0.5));
-}
-
 .hero-subtitle {
     color: var(--silver);
     font-size: 1.4rem;
     margin: 0 0 2.5rem;
 }
 
-.hero-cta {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-}
-
-.cta-button {
-    background: var(--red);
-    color: white;
-    padding: 1rem 2.5rem;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.cta-button-ghost {
-    background: none;
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    padding: 1rem 2.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.cta-button:hover, .cta-button-ghost:hover {
-    transform: translateY(-2px);
-}
-
-/* === Featured Events Grid === */
-.section {
-    padding: 4rem 0;
-}
-
-.section-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
+/* === Events Section === */
 .section-title {
-    text-align: center;
-    font-family: 'Beleren', sans-serif;
-    font-size: 2.5rem;
+    font-family: 'Beleren', 'MedievalSharp', sans-serif;
     color: var(--gold);
-    margin: 0 0 3rem;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    width: 100px;
-    height: 3px;
-    background: var(--red);
-    position: absolute;
-    bottom: -1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.featured-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.event-card {
-    background: var(--navy);
-    border-radius: 12px;
-    padding: 2rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.featured-card {
-    border: 2px solid var(--gold);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.event-tag {
-    background: rgba(var(--gold-rgb), 0.1);
-    color: var(--gold);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    display: inline-block;
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
 }
 
 .event-title {
-    font-family: 'Beleren', sans-serif;
-    color: var(--gold);
-    margin: 0 0 1rem;
-    font-size: 1.5rem;
+    font-family: 'Beleren', 'MedievalSharp', sans-serif;
 }
 
 .event-details {
     color: var(--text-secondary);
-    margin-bottom: 1.5rem;
 }
 
-.event-details p {
-    margin: 0.5rem 0;
-}
-
-.event-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1.5rem;
-}
-
-.card-button {
-    background: none;
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.card-button:hover {
-    background: rgba(var(--gold), 0.1);
-}
-
-/* === Leaderboard Table === */
-.table-wrapper {
-    background: var(--deep-blue);
-    border-radius: 12px;
-    border: 1px solid rgba(var(--gold), 0.1);
-    overflow: hidden;
-}
-
-.leaderboard-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.leaderboard-table th, .leaderboard-table td {
-    padding: 1.25rem;
-    text-align: left;
-}
-
+/* === Leaderboard === */
 .leaderboard-table th {
+    font-family: 'Beleren', 'MedievalSharp', sans-serif;
     background: rgba(var(--gold-rgb), 0.1);
-    color: var(--gold);
-    font-family: 'Beleren', sans-serif;
-}
-
-.leaderboard-table tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.03);
 }
 
 .rank-badge {
     background: var(--gold);
-    color: var(--black); /* Ensure contrast with gold */
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+    color: var(--deep-blue) !important;
+}
+
+/* === Buttons === */
+.card-button,
+.cta-button-ghost {
+    color: var(--text-primary) !important;
+    border-color: currentColor;
 }
 
 /* === Mobile Responsiveness === */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .nav-links {
-        gap: 1rem;
-    }
-
     .hero-title {
         font-size: 2.5rem;
     }
-
-    .featured-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .event-card {
-        padding: 1.5rem;
+    
+    .nav-link {
+        font-size: 1rem;
     }
 }
