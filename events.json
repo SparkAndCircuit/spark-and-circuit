@@ -1,0 +1,24 @@
+{
+    "events": [
+      {
+        "id": 1,
+        "title": "Championship Circuit",
+        "date": "October 28th | 4:00 PM",
+        "format": "Modern",
+        "entry": "$20 Entry",
+        "registered": 32,
+        "tag": "Premier",
+        "gridSpan": 2
+      },
+      {
+        "id": 2,
+        "title": "Commander Night",
+        "date": "October 22nd | 6:00 PM",
+        "format": "Commander",
+        "entry": "Free Entry",
+        "registered": 18,
+        "tag": "Casual",
+        "gridSpan": 1
+      }
+    ]
+  }

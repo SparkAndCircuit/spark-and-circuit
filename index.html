@@ -46,35 +46,8 @@
                 Featured Events
                 <span class="title-decorator"></span>
             </h2>
-            <div class="dynamic-grid">
-                <!-- Premier Event -->
-                <article class="event-card grid-span-2">
-                    <div class="event-tag premium">Premier</div>
-                    <h3 class="event-title">Championship Circuit</h3>
-                    <div class="event-details">
-                        <p>October 28th | 4:00 PM</p>
-                        <p>Modern | $20 Entry</p>
-                    </div>
-                    <div class="event-footer">
-                        <div class="event-players">
-                            32 Registered
-                        </div>
-                        <button class="card-button">Register Now</button>
-                    </div>
-                </article>
-
-                <!-- Secondary Event -->
-                <article class="event-card">
-                    <div class="event-tag casual">Casual</div>
-                    <h3 class="event-title">Commander Night</h3>
-                    <div class="event-details">
-                        <p>October 22nd | 6:00 PM</p>
-                        <p>Commander | Free Entry</p>
-                    </div>
-                    <div class="event-footer">
-                        <button class="card-button">Join</button>
-                    </div>
-                </article>
+            <div class="dynamic-grid" id="events-container">
+                <!-- Events will be loaded here dynamically -->
             </div>
         </div>
     </section>
@@ -112,5 +85,6 @@
             </div>
         </div>
     </section>
+    <script src="app.js"></script>
 </body>
 </html>
