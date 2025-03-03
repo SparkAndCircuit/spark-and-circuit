@@ -1,235 +1,101 @@
-/* === Variables === */
-:root {
-    --deep-blue: #0A1A2F;
-    --navy: #1A2A3F;
-    --gold: #D4AF37;
-    --silver: #C0C0C0;
-    --red: #FF3B3F;
-    --black: #0F0F0F;
-    --text-primary: rgba(255, 255, 255, 0.92);
-    --text-secondary: rgba(255, 255, 255, 0.6);
-}
-
-/* === Base Styles (Moxfield Minimalism) === */
-body {
-    background: var(--black);
-    color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-}
-
-/* === Navigation (Sticky, Sleek) === */
-.nav {
-    background: var(--deep-blue);
-    border-bottom: 1px solid rgba(var(--gold), 0.1);
-    position: sticky;
-    top: 0;
-    padding: 1rem 0;
-}
-
-.nav-container {
+/* === Centered Layout Containers === */
+.section-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
     padding: 0 2rem;
 }
 
-.nav-logo {
-    height: 40px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1.5rem;
-    margin-left: auto;
-}
-
-.nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.nav-link:hover {
-    color: var(--gold);
-}
-
-.nav-search {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* === Hero (Scryfall-Style Search Focus) === */
+/* === Hero (Fully Centered) === */
 .hero {
-    background: linear-gradient(to right, var(--deep-blue), var(--navy)),
-                url('images/hero-bg.jpg') center/cover;
-    padding: 4rem 1rem;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
     text-align: center;
+    padding: 6rem 1rem;
+    background: 
+        linear-gradient(to bottom right, var(--deep-blue), var(--navy)),
+        url('images/hero-bg.jpg') center/cover;
 }
 
 .hero-title {
     font-family: 'Beleren', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: 3.5rem;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0 auto 1rem;
 }
 
-.text-gradient {
-    background: linear-gradient(45deg, var(--gold), var(--red));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.hero-spark {
+    color: var(--red);
+    filter: drop-shadow(0 0 8px rgba(255, 59, 63, 0.5));
 }
 
-.search-bar {
+.hero-subtitle {
+    color: var(--silver);
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.hero-cta {
     display: flex;
     gap: 1rem;
-    max-width: 600px;
-    margin: 0 auto;
+    justify-content: center;
 }
 
-.search-bar input {
-    flex: 1;
-    padding: 1rem;
-    border: 1px solid var(--silver);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-.search-button {
-    background: var(--red);
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.search-button:hover {
-    opacity: 0.9;
-}
-
-/* === Event Cards (Scryfall-Inspired Grid) === */
-.card-grid {
+/* === Featured Events (Asymmetric Grid) === */
+.featured-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    grid-template-columns: 2fr 1fr; /* Dominant + secondary card */
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.featured-card {
+    background: var(--navy);
+    border: 2px solid var(--gold);
+    padding: 2rem;
+    border-radius: 12px;
 }
 
 .event-card {
-    background: var(--navy);
-    border: 1px solid rgba(var(--gold), 0.1);
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.event-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.card-pill {
-    background: rgba(var(--gold), 0.1);
-    color: var(--gold);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-.card-title {
-    font-family: 'Beleren', sans-serif;
-    margin: 0.5rem 0;
-}
-
-.card-detail {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-.card-button {
-    background: none;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    margin-top: 1rem;
-    cursor: pointer;
-}
-
-/* === Leaderboard Table (Moxfield Style) === */
-.leaderboard-table {
-    width: 100%;
-    border-collapse: collapse;
     background: var(--deep-blue);
+    border: 1px solid rgba(var(--gold), 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* === Table (Centered but Left-Aligned Text) === */
+.table-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid rgba(var(--gold), 0.1);
     border-radius: 8px;
     overflow: hidden;
 }
 
-.leaderboard-table th, .leaderboard-table td {
-    padding: 1rem;
-    text-align: left;
+.leaderboard-table {
+    width: 100%;
+    text-align: left; /* For readability */
 }
 
-.leaderboard-table th {
-    background: rgba(var(--gold), 0.1);
-    color: var(--gold);
+/* === Typography Hierarchy === */
+.section-title {
+    text-align: center;
     font-family: 'Beleren', sans-serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 3rem;
+    position: relative;
 }
 
-.leaderboard-table tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.03);
-}
-
-.rank-badge {
-    background: var(--gold);
-    color: var(--black);
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
-
-/* === Responsive Design === */
-@media (max-width: 768px) {
-    .nav-container {
-        padding: 0 1rem;
-    }
-
-    .nav-links {
-        display: none; /* Replace with hamburger menu */
-    }
-
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .search-bar {
-        flex-direction: column;
-    }
-
-    .search-button {
-        width: 100%;
-    }
+.section-title::after {
+    content: '';
+    width: 100px;
+    height: 2px;
+    background: var(--red);
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
