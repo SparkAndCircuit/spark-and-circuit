@@ -1,16 +1,15 @@
 /* === Variables === */
 :root {
-    /* Brand Colors */
+    /* Brand Colors (RGB format for RGBA usage) */
     --deep-blue: #0A1A2F;
     --navy: #1A2A3F;
-    --gold: #D4AF37;
-    --silver: #C0C0C0;
-    --red: #FF3B3F;
+    --gold-rgb: 212, 175, 55;
+    --gold: rgb(var(--gold-rgb));
+    --silver-rgb: 192, 192, 192;
+    --silver: rgb(var(--silver-rgb));
+    --red-rgb: 255, 59, 63;
+    --red: rgb(var(--red-rgb));
     --black: #0F0F0F;
-    
-    /* Typography */
-    --text-primary: rgba(255, 255, 255, 0.95);
-    --text-secondary: rgba(255, 255, 255, 0.7);
 }
 
 /* === Base Styles === */
@@ -25,7 +24,7 @@ body {
 /* === Navigation (Centered) === */
 .nav {
     background: var(--deep-blue);
-    border-bottom: 1px solid rgba(var(--gold), 0.1);
+    border-bottom: 1px solid rgba(var(--gold-rgb), 0.1);
     padding: 1.5rem 0;
 }
 
@@ -177,7 +176,7 @@ body {
 }
 
 .event-tag {
-    background: rgba(var(--gold), 0.1);
+    background: rgba(var(--gold-rgb), 0.1);
     color: var(--gold);
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -242,7 +241,7 @@ body {
 }
 
 .leaderboard-table th {
-    background: rgba(var(--gold), 0.1);
+    background: rgba(var(--gold-rgb), 0.1);
     color: var(--gold);
     font-family: 'Beleren', sans-serif;
 }
@@ -253,7 +252,7 @@ body {
 
 .rank-badge {
     background: var(--gold);
-    color: var(--black);
+    color: var(--black); /* Ensure contrast with gold */
     width: 30px;
     height: 30px;
     border-radius: 50%;
