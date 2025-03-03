@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Fonts -->
     <link href="https://fonts.cdnfonts.com/css/beleren" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Centered Navigation -->
@@ -26,22 +26,15 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="gradient-text">Spark & Circuit</span>
-                </h1>
-                <div class="hero-divider"></div>
-                <p class="hero-subtitle">A New Era of Competitive Magic</p>
-                <div class="hero-cta">
-                    <a href="#events" class="cta-button">
-                        <span class="icon">⚡</span>
-                        Upcoming Events
-                    </a>
-                    <a href="#circuit" class="cta-button-ghost">
-                        <span class="icon">🏆</span>
-                        Leaderboard
-                    </a>
-                </div>
+            <h1 class="hero-title">
+                <span class="hero-spark">⚡</span>  
+                Spark & Circuit  
+                <span class="hero-spark">⚡</span>
+            </h1>
+            <p class="hero-subtitle">Where Magic Meets Competition</p>
+            <div class="hero-cta">
+                <a href="#events" class="cta-button">Upcoming Events</a>
+                <a href="#circuit" class="cta-button-ghost">Leaderboard</a>
             </div>
         </div>
     </section>
@@ -50,48 +43,33 @@
     <section class="section" id="events">
         <div class="section-container">
             <h2 class="section-title">Featured Events</h2>
-            <div class="dynamic-grid">
+            <div class="featured-grid">
                 <!-- Premier Event -->
                 <article class="event-card featured-card">
-                    <div class="event-header">
-                        <div class="event-tag">Championship Series</div>
-                        <div class="event-icon">🔥</div>
-                    </div>
-                    <h3 class="event-title">Modern Showdown</h3>
+                    <div class="event-tag">Premier</div>
+                    <h3 class="event-title">Championship Circuit</h3>
                     <div class="event-details">
-                        <div class="detail-item">
-                            <span class="icon">📅</span>
-                            <span>October 28th | 4:00 PM</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">💰</span>
-                            <span>$20 Entry | 32 Players</span>
-                        </div>
+                        <p>📅 October 28th | 🕒 4:00 PM</p>
+                        <p>⚖️ Modern | 💰 $20 Entry</p>
                     </div>
                     <div class="event-footer">
-                        <button class="card-button">
-                            <span class="icon">🎮</span>
-                            Register Now
-                        </button>
+                        <div class="event-players">
+                            <span>🎮 32 Players Registered</span>
+                        </div>
+                        <button class="card-button">Register Now →</button>
                     </div>
                 </article>
 
                 <!-- Secondary Event -->
-                <article class="event-card grid-span-2">
-                    <div class="event-header">
-                        <div class="event-tag">Weekly Casual</div>
-                        <div class="event-icon">🃏</div>
-                    </div>
+                <article class="event-card">
+                    <div class="event-tag">Casual</div>
                     <h3 class="event-title">Commander Night</h3>
                     <div class="event-details">
-                        <div class="detail-item">
-                            <span class="icon">📅</span>
-                            <span>Every Wednesday | 6:00 PM</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">🎉</span>
-                            <span>Free Entry | Prize Support</span>
-                        </div>
+                        <p>📅 October 22nd | 🕒 6:00 PM</p>
+                        <p>⚖️ Commander | 💰 Free Entry</p>
+                    </div>
+                    <div class="event-footer">
+                        <button class="card-button">Join →</button>
                     </div>
                 </article>
             </div>
@@ -102,14 +80,13 @@
     <section class="section" id="circuit">
         <div class="section-container">
             <h2 class="section-title">Circuit Standings</h2>
-            <div class="table-container">
+            <div class="table-wrapper">
                 <table class="leaderboard-table">
                     <thead>
                         <tr>
                             <th>Rank</th>
                             <th>Player</th>
                             <th>Points</th>
-                            <th>Format</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -117,13 +94,11 @@
                             <td><span class="rank-badge">1</span></td>
                             <td>Jace, Mind Sculptor</td>
                             <td>850⚡</td>
-                            <td>Modern</td>
                         </tr>
                         <tr>
                             <td><span class="rank-badge">2</span></td>
                             <td>Liliana, Dreadhorde</td>
                             <td>790⚡</td>
-                            <td>Pioneer</td>
                         </tr>
                     </tbody>
                 </table>
