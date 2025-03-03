@@ -1,3 +1,4 @@
+/* styles.css */
 /* === Updated Variables === */
 :root {
     /* Brand Colors */
@@ -15,7 +16,7 @@
     --text-primary: #FFFFFF;
     --text-secondary: rgba(255, 255, 255, 0.85);
     --font-heading: 'Beleren', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
 
 /* === Base Styles === */
@@ -24,23 +25,54 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.6;
+    margin: 0;
+}
+
+/* === Navigation === */
+.nav {
+    padding: 1.5rem 0;
+    background: var(--deep-blue);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--gold);
 }
 
 /* === Enhanced Hero Section === */
 .hero {
     text-align: center;
     padding: 8rem 1rem;
-    background: 
-        radial-gradient(circle at 50% 100%, var(--deep-blue) 0%, var(--black) 100%);
+    background: radial-gradient(circle at 50% 100%, var(--deep-blue) 0%, var(--black) 100%);
     position: relative;
-    overflow: hidden;
 }
 
-.hero-content {
-    max-width: 800px;
+.hero-container {
+    max-width: 1200px;
     margin: 0 auto;
-    position: relative;
-    z-index: 2;
 }
 
 .gradient-text {
@@ -49,7 +81,7 @@ body {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: var(--font-heading);
-    font-size: 4rem;
+    font-size: 4.5rem;
     letter-spacing: -0.03em;
     margin: 0;
 }
@@ -60,6 +92,12 @@ body {
     background: var(--gold);
     margin: 2rem auto;
     opacity: 0.8;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
 }
 
 /* === Dynamic Grid Layout === */
@@ -74,24 +112,37 @@ body {
     grid-column: span 2;
 }
 
+/* === Event Cards === */
 .event-card {
     background: var(--navy);
     border-radius: 16px;
     padding: 2rem;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 .event-card:hover {
     transform: translateY(-5px);
 }
 
-/* === Typography Hierarchy === */
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
+.event-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0 16px 0 16px;
+    font-weight: 700;
+}
+
+.event-tag.premium {
+    background: var(--red);
+    color: white;
+}
+
+.event-tag.casual {
+    background: var(--silver);
+    color: var(--black);
 }
 
 .event-title {
@@ -100,7 +151,68 @@ body {
     margin: 1.5rem 0;
 }
 
-/* === Enhanced Table Design === */
+.event-details {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.event-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* === Interactive Elements === */
+.cta-button {
+    background: var(--red);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cta-button-ghost {
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.card-button {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.card-button:hover {
+    opacity: 0.9;
+}
+
+.icon {
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+/* === Table Styles === */
 .table-container {
     background: var(--deep-blue);
     border-radius: 16px;
@@ -121,20 +233,21 @@ body {
     border-bottom: 2px solid var(--gold);
 }
 
-/* === Interactive Elements === */
-.cta-button {
-    background: var(--red);
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: all 0.3s ease;
+.leaderboard-table td {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
 }
 
-.icon {
-    font-size: 1.2em;
-    vertical-align: middle;
+.rank-badge {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--black);
+    text-align: center;
+    line-height: 32px;
+    font-weight: 700;
 }
 
 /* === Responsive Design === */
@@ -149,5 +262,19 @@ body {
     
     .gradient-text {
         font-size: 3rem;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .gradient-text {
+        font-size: 2.5rem;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
     }
 }
