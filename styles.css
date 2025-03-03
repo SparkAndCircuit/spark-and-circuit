@@ -244,7 +244,7 @@ body {
 .leaderboard-table th {
     background: rgba(var(--gold), 0.1);
     color: var(--gold);
-    font-family: 'Beleren', sans-serif);
+    font-family: 'Beleren', sans-serif;
 }
 
 .leaderboard-table tr:nth-child(even) {
