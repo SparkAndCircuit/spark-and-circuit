@@ -1,17 +1,75 @@
-/* === Centered Layout Containers === */
-.section-container {
+/* === Variables === */
+:root {
+    /* Brand Colors */
+    --deep-blue: #0A1A2F;
+    --navy: #1A2A3F;
+    --gold: #D4AF37;
+    --silver: #C0C0C0;
+    --red: #FF3B3F;
+    --black: #0F0F0F;
+    
+    /* Typography */
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+/* === Base Styles === */
+body {
+    background: var(--black);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* === Navigation (Centered) === */
+.nav {
+    background: var(--deep-blue);
+    border-bottom: 1px solid rgba(var(--gold), 0.1);
+    padding: 1.5rem 0;
+}
+
+.nav-container {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0 2rem;
 }
 
-/* === Hero (Fully Centered) === */
+.nav-logo {
+    height: 45px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--gold);
+}
+
+/* === Hero Section === */
 .hero {
     text-align: center;
-    padding: 6rem 1rem;
+    padding: 8rem 1rem;
     background: 
-        linear-gradient(to bottom right, var(--deep-blue), var(--navy)),
+        linear-gradient(135deg, var(--deep-blue) 30%, var(--navy) 100%),
         url('images/hero-bg.jpg') center/cover;
+}
+
+.hero-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero-title {
@@ -22,80 +80,209 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin: 0 auto 1rem;
+    margin: 0 0 1rem;
 }
 
 .hero-spark {
     color: var(--red);
-    filter: drop-shadow(0 0 8px rgba(255, 59, 63, 0.5));
+    filter: drop-shadow(0 0 12px rgba(255, 59, 63, 0.5));
 }
 
 .hero-subtitle {
     color: var(--silver);
-    font-size: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto 2rem;
+    font-size: 1.4rem;
+    margin: 0 0 2.5rem;
 }
 
 .hero-cta {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
 }
 
-/* === Featured Events (Asymmetric Grid) === */
-.featured-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* Dominant + secondary card */
-    gap: 2rem;
-    margin: 2rem 0;
+.cta-button {
+    background: var(--red);
+    color: white;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-.featured-card {
-    background: var(--navy);
+.cta-button-ghost {
+    background: none;
     border: 2px solid var(--gold);
-    padding: 2rem;
-    border-radius: 12px;
-}
-
-.event-card {
-    background: var(--deep-blue);
-    border: 1px solid rgba(var(--gold), 0.1);
-    padding: 1.5rem;
+    color: var(--gold);
+    padding: 1rem 2.5rem;
     border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-/* === Table (Centered but Left-Aligned Text) === */
-.table-wrapper {
-    max-width: 800px;
+.cta-button:hover, .cta-button-ghost:hover {
+    transform: translateY(-2px);
+}
+
+/* === Featured Events Grid === */
+.section {
+    padding: 4rem 0;
+}
+
+.section-container {
+    max-width: 1200px;
     margin: 0 auto;
-    border: 1px solid rgba(var(--gold), 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    padding: 0 2rem;
 }
 
-.leaderboard-table {
-    width: 100%;
-    text-align: left; /* For readability */
-}
-
-/* === Typography Hierarchy === */
 .section-title {
     text-align: center;
     font-family: 'Beleren', sans-serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--gold);
-    margin-bottom: 3rem;
+    margin: 0 0 3rem;
     position: relative;
 }
 
 .section-title::after {
     content: '';
     width: 100px;
-    height: 2px;
+    height: 3px;
     background: var(--red);
     position: absolute;
-    bottom: -1rem;
+    bottom: -1.5rem;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.event-card {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featured-card {
+    border: 2px solid var(--gold);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.event-tag {
+    background: rgba(var(--gold), 0.1);
+    color: var(--gold);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.event-title {
+    font-family: 'Beleren', sans-serif;
+    color: var(--gold);
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+}
+
+.event-details {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.event-details p {
+    margin: 0.5rem 0;
+}
+
+.event-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.card-button {
+    background: none;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.card-button:hover {
+    background: rgba(var(--gold), 0.1);
+}
+
+/* === Leaderboard Table === */
+.table-wrapper {
+    background: var(--deep-blue);
+    border-radius: 12px;
+    border: 1px solid rgba(var(--gold), 0.1);
+    overflow: hidden;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+    padding: 1.25rem;
+    text-align: left;
+}
+
+.leaderboard-table th {
+    background: rgba(var(--gold), 0.1);
+    color: var(--gold);
+    font-family: 'Beleren', sans-serif);
+}
+
+.leaderboard-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.rank-badge {
+    background: var(--gold);
+    color: var(--black);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* === Mobile Responsiveness === */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .event-card {
+        padding: 1.5rem;
+    }
 }
