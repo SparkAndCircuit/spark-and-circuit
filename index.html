@@ -3,103 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark and Circuit | MTG Game Store & Tournament Hub</title>
+    <title>Spark & Circuit | MTG Hub</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Fonts -->
     <link href="https://fonts.cdnfonts.com/css/beleren" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.comcss2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar with Glowing Logo -->
-    <nav class="navbar">
-        <div class="nav-logo">
-            <img src="images/logo.png" alt="Spark & Circuit Logo">
-        </div>
-        <div class="nav-links">
-            <a href="#events">Events</a>
-            <a href="#circuit">Circuit</a>
-            <a href="#products">Products</a>
-            <a href="#contact">Contact</a>
+    <!-- Sticky Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <img src="images/logo.svg" alt="Logo" class="nav-logo">
+            <div class="nav-links">
+                <a href="#events" class="nav-link">Events</a>
+                <a href="#circuit" class="nav-link">Circuit</a>
+                <a href="#store" class="nav-link">Store</a>
+                <a href="#account" class="nav-link">Account</a>
+            </div>
+            <button class="nav-search"><img src="images/search-icon.svg" alt="Search"></button>
         </div>
     </nav>
 
-    <!-- Hero Section with Spark/Circuit Fusion -->
+    <!-- Hero with Search Bar -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Ignite Your Spark.<br>Join the <span class="circuit-text">Circuit</span>.</h1>
-            <div class="mana-icons">
-                <!-- MTG Mana Color Accents -->
-                <div class="mana-icon" style="background: #F5F5F5;"></div>
-                <div class="mana-icon" style="background: #2196F3;"></div>
-                <div class="mana-icon" style="background: #212121;"></div>
-                <div class="mana-icon" style="background: #FF3B3F;"></div>
-                <div class="mana-icon" style="background: #4CAF50;"></div>
-            </div>
-            <a href="#events" class="cta-button">View Events</a>
-        </div>
-    </section>
-
-    <!-- Circuit Leaderboard -->
-    <section id="circuit" class="circuit-leaderboard">
-        <h2>Circuit Standings</h2>
-        <div class="leaderboard-grid">
-            <div class="leaderboard-entry">
-                <span class="rank">1</span>
-                <span class="player">Jace, Mind Sculptor</span>
-                <span class="points">850⚡</span>
-            </div>
-            <div class="leaderboard-entry">
-                <span class="rank">2</span>
-                <span class="player">Liliana, Dreadhorde</span>
-                <span class="points">790⚡</span>
+            <h1 class="hero-title">Find Your <span class="text-gradient">Next Match</span></h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search events, cards, or products...">
+                <button class="search-button">Go</button>
             </div>
         </div>
     </section>
 
-    <!-- Upcoming Events Section -->
-    <section id="events" class="events">
-        <h2>Upcoming Tournaments</h2>
-        <div class="event-grid">
-            <div class="event-card">
-                <h3>Friday Night Magic</h3>
-                <p>October 20th | 6:00 PM</p>
-                <p>Format: Modern</p>
-                <a href="#" class="event-button">Register Now</a>
-            </div>
-            <div class="event-card">
-                <h3>Commander Clash</h3>
-                <p>October 22nd | 5:00 PM</p>
-                <p>Bring your best deck!</p>
-                <a href="#" class="event-button">Register Now</a>
-            </div>
+    <!-- Event Grid (Scryfall-style Card Layout) -->
+    <section class="section" id="events">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="card-grid">
+            <article class="event-card">
+                <div class="card-header">
+                    <span class="card-pill">Modern</span>
+                    <span class="card-date">Oct 20</span>
+                </div>
+                <h3 class="card-title">Friday Night Magic</h3>
+                <p class="card-detail">6:00 PM · $10 Entry · 32 Players</p>
+                <button class="card-button">Register →</button>
+            </article>
+            <!-- Repeat for other events -->
         </div>
     </section>
 
-    <!-- Featured Products Section -->
-    <section id="products" class="products">
-        <h2>New Arrivals</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="images/boosters.jpg" alt="MTG Boosters">
-                <h3>Wilds of Eldraine Boosters</h3>
-                <p>$4.99 per pack</p>
-            </div>
-            <div class="product-card">
-                <img src="images/playmat.jpg" alt="MTG Playmat">
-                <h3>Limited Edition Playmats</h3>
-                <p>$24.99</p>
-            </div>
+    <!-- Circuit Leaderboard (Moxfield-style Table) -->
+    <section class="section" id="circuit">
+        <h2 class="section-title">Circuit Standings</h2>
+        <div class="table-container">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="rank-badge">1</span></td>
+                        <td>Jace, Mind Sculptor</td>
+                        <td>850⚡</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </section>
-
-    <!-- Newsletter Signup -->
-    <section class="newsletter">
-        <h2>Stay in the Circuit</h2>
-        <p>Get event updates, deck tips, and exclusive offers.</p>
-        <form>
-            <input type="email" placeholder="Enter your email">
-            <button type="submit" class="cta-button">Sign Up</button>
-        </form>
     </section>
 </body>
 </html>
