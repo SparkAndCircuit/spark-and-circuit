@@ -1,144 +1,153 @@
-/* === Variables === */
+/* === Updated Variables === */
 :root {
     /* Brand Colors */
     --deep-blue: #0A1A2F;
     --navy: #1A2A3F;
-    --gold-rgb: 212, 175, 55;
-    --gold: rgb(var(--gold-rgb));
-    --silver-rgb: 192, 192, 192;
-    --silver: rgb(var(--silver-rgb));
-    --red-rgb: 255, 59, 63;
-    --red: rgb(var(--red-rgb));
+    --gold: #D4AF37;
+    --silver: #C0C0C0;
+    --red: #FF3B3F;
     --black: #0F0F0F;
+    
+    /* Gradients */
+    --gold-gradient: linear-gradient(135deg, var(--gold) 0%, #FFD700 100%);
     
     /* Typography */
     --text-primary: #FFFFFF;
-    --text-secondary: #E0E0E0;
+    --text-secondary: rgba(255, 255, 255, 0.85);
+    --font-heading: 'Beleren', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
 }
-
-/* === Font Imports === */
-@import url('https://fonts.cdnfonts.com/css/beleren');
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=IM+Fell+English+SC&display=swap');
 
 /* === Base Styles === */
 body {
     background: var(--black);
     color: var(--text-primary);
-    font-family: 'IM Fell English SC', serif;
-    margin: 0;
-    line-height: 1.5; /* Tighter line height */
+    font-family: var(--font-body);
+    line-height: 1.6;
 }
 
-/* === Fixed Navigation Structure === */
-.nav {
-    background: var(--deep-blue);
-    border-bottom: 1px solid rgba(var(--gold-rgb), 0.1);
-    padding: 1rem 0; /* Reduced padding */
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-}
-
-.nav-logo {
-    height: 40px; /* Slightly smaller logo */
-}
-
-.nav-links {
-    display: flex;
-    gap: 1.5rem; /* Reduced gap */
-}
-
-.nav-link {
-    color: var(--text-secondary) !important;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-    font-size: 1rem; /* Standardized size */
-    white-space: nowrap; /* Prevent line breaks */
-}
-
-/* === Restored Hero Layout === */
+/* === Enhanced Hero Section === */
 .hero {
     text-align: center;
-    padding: 6rem 1rem; /* Adjusted padding */
+    padding: 8rem 1rem;
     background: 
-        linear-gradient(135deg, var(--deep-blue) 30%, var(--navy) 100%),
-        url('images/hero-bg.jpg') center/cover;
+        radial-gradient(circle at 50% 100%, var(--deep-blue) 0%, var(--black) 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-.hero-title {
-    font-family: 'Beleren', 'MedievalSharp', sans-serif;
-    font-size: 3rem; /* Slightly smaller */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem; /* Tighter spacing */
-    margin: 0 0 0.5rem;
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
-.hero-subtitle {
-    font-size: 1.2rem; /* Adjusted size */
-    margin-bottom: 2rem;
+.gradient-text {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    letter-spacing: -0.03em;
+    margin: 0;
 }
 
-/* === Grid Layout Preservation === */
-.featured-grid {
+.hero-divider {
+    width: 120px;
+    height: 2px;
+    background: var(--gold);
+    margin: 2rem auto;
+    opacity: 0.8;
+}
+
+/* === Dynamic Grid Layout === */
+.dynamic-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1.5rem; /* Consistent spacing */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.grid-span-2 {
+    grid-column: span 2;
 }
 
 .event-card {
-    padding: 1.5rem; /* Uniform padding */
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* === Table Structure Fixes === */
-.leaderboard-table th, 
-.leaderboard-table td {
-    padding: 1rem; /* Consistent padding */
+.event-card:hover {
+    transform: translateY(-5px);
 }
 
-.rank-badge {
-    width: 25px; /* Smaller badge */
-    height: 25px;
-    font-size: 0.9rem;
+/* === Typography Hierarchy === */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
 }
 
-/* === Button Alignment Fix === */
-.card-button {
-    padding: 0.5rem 1rem; /* Compact size */
+.event-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    margin: 1.5rem 0;
 }
 
-/* === Mobile Responsiveness === */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: row; /* Keep horizontal layout longer */
-        padding: 0 1rem;
-    }
+/* === Enhanced Table Design === */
+.table-container {
+    background: var(--deep-blue);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
 
-    .nav-links {
-        gap: 1rem;
-    }
+.leaderboard-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+}
 
-    .hero-title {
-        font-size: 2rem;
-        flex-wrap: wrap; /* Handle long text */
-    }
+.leaderboard-table th {
+    font-family: var(--font-heading);
+    text-align: left;
+    padding: 1.5rem;
+    border-bottom: 2px solid var(--gold);
+}
 
-    .featured-grid {
+/* === Interactive Elements === */
+.cta-button {
+    background: var(--red);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.icon {
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+/* === Responsive Design === */
+@media (max-width: 1024px) {
+    .dynamic-grid {
         grid-template-columns: 1fr;
     }
-}
-
-@media (max-width: 480px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 1rem;
+    
+    .grid-span-2 {
+        grid-column: span 1;
+    }
+    
+    .gradient-text {
+        font-size: 3rem;
     }
 }
