@@ -6,7 +6,8 @@
             "price": 49.99,
             "image": "images/commander-collection.jpg",
             "category": "Precons",
-            "stock": 15
+            "initialStock": 15,
+            "currentStock": 15
         },
         {
             "id": 102,
@@ -14,7 +15,8 @@
             "price": 99.99,
             "image": "images/draft-booster.jpg",
             "category": "Booster Boxes",
-            "stock": 8
+            "initialStock": 8,
+            "currentStock": 8
         }
     ]
 }

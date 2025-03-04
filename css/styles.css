@@ -1,0 +1,107 @@
+/* =====================
+   CORE VARIABLES & BASE
+   ===================== */
+   :root {
+    --deep-blue: #0A1A2F;
+    --navy: #1A2A3F;
+    --gold: #D4AF37;
+    --silver: #C0C0C0;
+    --red: #FF3B3F;
+    --black: #0F0F0F;
+    --card-gradient: linear-gradient(145deg, var(--navy) 0%, #1a2a3fdd 100%);
+    --gold-text-gradient: linear-gradient(135deg, var(--gold) 30%, #FFEEA3 100%);
+    --font-heading: 'Beleren', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.85);
+}
+
+body {
+    background: var(--black);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+}
+
+/* =====================
+   REUSABLE COMPONENTS
+   ===================== */
+.card {
+    background: var(--card-gradient);
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.btn {
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    
+    &--gold {
+        background: var(--gold);
+        color: var(--black);
+    }
+    
+    &--red {
+        background: var(--red);
+        color: white;
+    }
+}
+
+/* =====================
+   MAIN SECTIONS
+   ===================== */
+/* Navigation */
+.nav {
+    padding: 1.5rem 0;
+    background: var(--deep-blue);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 8rem 1rem;
+    background: radial-gradient(ellipse at top, var(--deep-blue) 0%, var(--black) 100%);
+}
+
+/* Events Grid */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Store Grid */
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Cart Modal */
+.cart-modal {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* =====================
+   RESPONSIVE DESIGN
+   ===================== */
+@media (max-width: 1024px) {
+    .events-grid, .store-grid {
+        grid-template-columns: 1fr;
+    }
+}
