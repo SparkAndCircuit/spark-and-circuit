@@ -17,7 +17,7 @@
     /* Typography */
     --text-primary: #FFFFFF;
     --text-secondary: rgba(255, 255, 255, 0.85);
-    --font-heading: 'Beleren', sans-serif;
+    --font-heading: 'Beleren', serif;
     --font-body: 'Inter', sans-serif;
 }
 
@@ -116,6 +116,28 @@ body {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
+}
+
+.cta-button {
+    background: var(--red);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cta-button-ghost {
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 /* =====================
