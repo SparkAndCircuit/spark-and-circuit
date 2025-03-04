@@ -8,6 +8,8 @@
     --silver: #C0C0C0;
     --red: #FF3B3F;
     --black: #0F0F0F;
+    --electric-blue: #00B4FF;
+    --mana-red: #D32F2F;
     --text-primary: #FFFFFF;
     --text-secondary: rgba(255, 255, 255, 0.85);
     --font-heading: 'Beleren', sans-serif;
@@ -248,4 +250,60 @@
     .social-links {
         flex-direction: column;
     }
+}
+
+/* Add to :root */
+--electric-blue: #00B4FF;
+--mana-red: #D32F2F;
+
+/* Base Styles */
+body {
+    background: var(--deep-blue);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+}
+
+/* Store Grid Layout */
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.product-card {
+    background: var(--card-gradient);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Event Cards */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.event-card {
+    background: var(--card-gradient);
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+}
+
+.event-tag {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--gold-gradient);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 700;
+    color: var(--black);
 }
