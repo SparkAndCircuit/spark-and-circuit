@@ -3,183 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark & Circuit | MTG Hub</title>
-    <meta name="description" content="Premier Magic: The Gathering store and tournament hub. Join our competitive circuit, shop latest products, and connect with fellow Planeswalkers.">
-    <meta property="og:image" content="images/og-banner.jpg">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Spark and Circuit | MTG Game Store & Tournament Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add MTG-themed font (Beleren) -->
     <link href="https://fonts.cdnfonts.com/css/beleren" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <img src="images/logo.svg" alt="Logo" class="nav-logo">
-            <div class="nav-links">
-                <a href="#events" class="nav-link">Events</a>
-                <a href="#circuit" class="nav-link">Circuit</a>
-                <a href="#store" class="nav-link">Store</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="images/logo.png" alt="Spark and Circuit Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#events">Events</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="gradient-accent">Spark</span>
-                    <svg class="hero-divider" viewBox="0 0 100 24">
-                        <path d="M0 12 L50 0 L100 12 L50 24 Z" fill="currentColor"/>
-                    </svg>
-                    <span class="gradient-accent">& Circuit</span>
-                </h1>
-                <p class="hero-subtitle">Forge Your Spark. Conquer the Circuit.</p>
-                <div class="hero-cta">
-                    <a href="#events" class="cta-button">
-                        <span>Register</span>
-                        <svg class="cta-icon">...</svg>
-                    </a>
-                </div>
+        <div class="hero-content">
+            <h1>Ignite Your Spark. Join the Circuit.</h1>
+            <p>Your destination for Magic: The Gathering tournaments, singles, and community.</p>
+            <a href="#events" class="cta-button">View Upcoming Events</a>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section id="events" class="events">
+        <h2>Upcoming Tournaments</h2>
+        <div class="event-grid">
+            <div class="event-card">
+                <h3>Friday Night Magic</h3>
+                <p>October 20th | 6:00 PM</p>
+                <p>Format: Modern</p>
+                <a href="#" class="event-button">Register Now</a>
             </div>
-            <canvas class="particle-canvas"></canvas>
-        </div>
-    </section>
-
-    <!-- Store Section -->
-    <section class="section" id="store">
-        <div class="section-container">
-            <h2 class="section-title">
-                <span class="title-decorator"></span>
-                Our Products
-                <span class="title-decorator"></span>
-            </h2>
-            <div class="store-grid" id="products-container"></div>
-        </div>
-    </section>
-
-    <!-- Events Section -->
-    <section class="section" id="events">
-        <div class="section-container">
-            <h2 class="section-title">
-                <span class="title-decorator"></span>
-                Featured Events
-                <span class="title-decorator"></span>
-            </h2>
-            <div class="events-grid" id="events-container"></div>
-        </div>
-    </section>
-
-    <!-- Circuit Section -->
-    <section class="section" id="circuit">
-        <div class="section-container">
-            <h2 class="section-title">
-                <span class="title-decorator"></span>
-                Circuit Standings
-                <span class="title-decorator"></span>
-            </h2>
-            <div class="table-container">
-                <table class="leaderboard-table">
-                    <!-- Leaderboard content loaded from JS -->
-                </table>
+            <div class="event-card">
+                <h3>Commander Clash</h3>
+                <p>October 22nd | 5:00 PM</p>
+                <p>Bring your best deck!</p>
+                <a href="#" class="event-button">Register Now</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="section-container">
-            <h2 class="section-title">
-                <span class="title-decorator"></span>
-                Our Story
-                <span class="title-decorator"></span>
-            </h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Igniting the Spark Since 2023</h3>
-                    <p>Founded by veteran Planeswalkers, we're your premier destination for competitive MTG play and premium collectibles.</p>
-                    <div class="team-grid">
-                        <img src="images/team1.jpg" alt="Founders">
-                        <img src="images/team2.jpg" alt="Staff">
-                    </div>
-                </div>
+    <!-- Featured Products Section -->
+    <section id="products" class="products">
+        <h2>New Arrivals</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="images/boosters.jpg" alt="MTG Boosters">
+                <h3>Wilds of Eldraine Boosters</h3>
+                <p>$4.99 per pack</p>
+            </div>
+            <div class="product-card">
+                <img src="images/playmat.jpg" alt="MTG Playmat">
+                <h3>Limited Edition Playmats</h3>
+                <p>$24.99</p>
             </div>
         </div>
     </section>
 
-    <!-- Membership Section -->
-    <section class="section" id="membership">
-        <div class="section-container">
-            <h2 class="section-title">
-                <span class="title-decorator"></span>
-                Circuit Club
-                <span class="title-decorator"></span>
-            </h2>
-            <div class="membership-card">
-                <div class="membership-benefits">
-                    <h3>🔮 Premium Perks</h3>
-                    <ul>
-                        <li>🎟️ 10% Event Discount</li>
-                        <li>📦 Early Product Access</li>
-                        <li>⚡ Exclusive Discord Access</li>
-                        <li>🏆 Double Circuit Points</li>
-                    </ul>
-                </div>
-                <form class="membership-form">
-                    <input type="email" placeholder="Email" required>
-                    <input type="text" placeholder="Planeswalker Name" required>
-                    <button class="cta-button">Join Now</button>
-                </form>
-            </div>
-        </div>
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <h2>Stay in the Circuit</h2>
+        <p>Get event updates, deck tips, and exclusive offers.</p>
+        <form>
+            <input type="email" placeholder="Enter your email">
+            <button type="submit" class="cta-button">Sign Up</button>
+        </form>
     </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="section-container">
-            <h2 class="section-title">
-                <span class="title-decorator"></span>
-                Find Us
-                <span class="title-decorator"></span>
-            </h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Planeswalker Nexus</h3>
-                    <p>📍 123 Arcane Street</p>
-                    <p>📞 (555) 123-4567</p>
-                    <p>🕒 Mon-Sun: 10AM-10PM</p>
-                    <div class="social-links">
-                        <a href="#">📘 Facebook</a>
-                        <a href="#">📸 Instagram</a>
-                        <a href="#">🎮 Discord</a>
-                    </div>
-                </div>
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63456.50110222506!2d-122.08424929453124!3d37.421999999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c66619367e0!2sGoogleplex!5e0!3m2!1sen!2sus!4v1695674873432!5m2!1sen!2sus" 
-                    class="map-embed"
-                    allowfullscreen=""
-                    loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cart System -->
-    <div class="cart-modal" id="cart-modal">
-        <div class="cart-content">
-            <h3>Your Cart <span class="cart-close">&times;</span></h3>
-            <div class="cart-items" id="cart-items"></div>
-            <div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
-            <button class="cta-button checkout-btn">Checkout</button>
-        </div>
-    </div>
-    <div class="cart-icon" id="cart-icon">🛒 <span id="cart-count">0</span></div>
-
-    <script src="js/lib/helpers.js"></script>
-    <script src="js/managers/cartManager.js"></script>
-    <script src="js/managers/eventManager.js"></script>
-    <script src="js/managers/productManager.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>
