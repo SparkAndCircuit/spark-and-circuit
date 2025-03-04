@@ -6,6 +6,7 @@ export class CartManager {
         this.cart = DataHelpers.retrieveData('cart') || [];
         this.inventory = DataHelpers.retrieveData('inventory') || {};
         this.initEventListeners();
+        DOMHelpers.qs('.checkout-btn').addEventListener('click', () => this.processCheckout());
     }
 
     initEventListeners() {
@@ -62,6 +63,36 @@ export class CartManager {
         DataHelpers.persistData('cart', this.cart);
         DataHelpers.persistData('inventory', this.inventory);
         DOMHelpers.qs('#cart-count').textContent = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+    
+        // Track purchase history
+        if (total > 0) {
+            const purchase = {
+                date: new Date().toISOString(),
+                items: this.cart,
+                total: total
+            };
+            const history = DataHelpers.retrieveData('purchaseHistory') || [];
+            history.push(purchase);
+            DataHelpers.persistData('purchaseHistory', history);
+        }
+    }
+
+    processCheckout() {
+        if (this.cart.length === 0) return;
+        
+        const transactionId = `TX-${Date.now()}`;
+        this.cart = [];
+        this.persistData();
+        
+        DOMHelpers.qs('#cart-items').innerHTML = `
+            <div class="checkout-success">
+                <h4>🎉 Purchase Complete!</h4>
+                <p>Transaction ID: ${transactionId}</p>
+                <p>Check your email for confirmation</p>
+            </div>
+        `;
+        
+        setTimeout(() => this.hideCart(), 3000);
     }
 
     renderCart() {
