@@ -14,9 +14,10 @@
 }
 
 body {
-    background: var(--black);
-    color: var(--text-primary);
+    background: radial-gradient(ellipse at top, var(--deep-blue) 0%, var(--black) 100%);    color: var(--text-primary);
+    background-attachment: fixed;
     font-family: var(--font-body);
+    min-height: 100vh;
     line-height: 1.7;
     letter-spacing: 0.02em;
     margin: 0;
@@ -24,7 +25,8 @@ body {
 
 .nav {
     padding: 1.5rem 0;
-    background: var(--deep-blue);
+    background: rgba(10, 26, 47, 0.95);
+    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -58,9 +60,7 @@ body {
 .hero {
     text-align: center;
     padding: 8rem 1rem;
-    background: radial-gradient(ellipse at top, var(--deep-blue) 0%, var(--black) 100%);
     position: relative;
-    box-shadow: inset 0 -40px 60px rgba(212, 175, 55, 0.1);
 }
 
 .hero-container {
@@ -99,7 +99,9 @@ body {
 }
 
 .section {
-    padding: 0 1rem; /* Added padding to prevent touching edges */
+    position: relative;
+    padding: 6rem 1rem; /* Increased top/bottom padding for better spacing */
+    background: transparent;
 }
 
 .section-container {
@@ -116,6 +118,17 @@ body {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+}
+
+.section::after {
+    content: '';
+    position: absolute;
+    bottom: -2rem; /* Positions divider between sections better */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.3) 50%, transparent 100%);
 }
 
 .title-decorator {
@@ -137,7 +150,8 @@ body {
 }
 
 .event-card {
-    background: linear-gradient(145deg, var(--navy) 0%, #1a2a3fdd 100%);
+    background: linear-gradient(145deg, rgba(26, 42, 63, 0.6) 0%, rgba(26, 42, 63, 0.3) 100%);
+    backdrop-filter: blur(6px); /* This was missing from non-hover state */
     border-radius: 16px;
     padding: 2rem;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -150,6 +164,8 @@ body {
 .event-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(145deg, rgba(26, 42, 63, 0.6) 0%, rgba(26, 42, 63, 0.3) 100%);
+    backdrop-filter: blur(6px);
 }
 
 .event-tag {
@@ -231,7 +247,8 @@ body {
 }
 
 .table-container {
-    background: var(--deep-blue);
+    background: rgba(10, 26, 47, 0.6); /* Increased opacity from 0.4 to 0.6 */
+    backdrop-filter: blur(8px);
     border-radius: 16px;
     padding: 2rem;
     margin-top: 2rem;
