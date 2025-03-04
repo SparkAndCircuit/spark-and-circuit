@@ -14,7 +14,8 @@
 }
 
 body {
-    background: radial-gradient(ellipse at top, var(--deep-blue) 0%, var(--black) 100%);    color: var(--text-primary);
+    background: radial-gradient(ellipse at top, var(--deep-blue) 0%, var(--black) 100%);
+    color: var(--text-primary);
     background-attachment: fixed;
     font-family: var(--font-body);
     min-height: 100vh;
@@ -39,6 +40,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    gap: 1rem;
 }
 
 .nav-links {
@@ -55,6 +57,173 @@ body {
 
 .nav-link:hover {
     color: var(--gold);
+}
+
+/* Search Bar Styles */
+.nav-search-container {
+    position: relative;
+    flex: 1 1 auto;
+    margin: 0 1.5rem;
+    z-index: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.search-combobox {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.search-category {
+    appearance: none;
+    background: rgba(10, 26, 47, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-right: none;
+    color: var(--text-primary);
+    padding: 0.75rem 2rem 0.75rem 1.25rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: all 0.3s ease, background 0.3s ease;
+    backdrop-filter: blur(4px);
+    width: auto;
+    min-width: 120px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.search-category:hover {
+    background: rgba(26, 42, 63, 0.9);
+}
+
+.search-category:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+}
+
+.nav-search {
+    width: 100%;
+    padding: 0.9rem 1.5rem 0.9rem 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 0 50px 50px 0;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    flex: 1;
+}
+
+.nav-search::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.nav-search:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    stroke: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+}
+
+.search-combobox::after {
+    content: "▾";
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1280px) {
+    .nav-search-container {
+        min-width: 250px;
+        margin: 0 1rem;
+    }
+    
+    .search-category {
+        min-width: 110px;
+        padding: 0.75rem 1.5rem 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav-search-container {
+        flex: 0 1 300px;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-search-container {
+        order: 3;
+        width: 100%;
+        margin: 1rem 0 0;
+        flex: none;
+    }
+    
+    .nav-container {
+        flex-wrap: wrap;
+    }
+    
+    .nav-links {
+        order: 2;
+    }
+    
+    .search-category {
+        min-width: 100px;
+        font-size: 0.85rem;
+    }
+    
+    .nav-search {
+        font-size: 0.95rem;
+    }
+    
+    .search-combobox::after {
+        right: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-combobox {
+        flex-direction: column;
+        border-radius: 16px;
+    }
+    
+    .search-category {
+        width: 100%;
+        border-radius: 16px 16px 0 0;
+        border-right: 1px solid rgba(212, 175, 55, 0.3);
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .nav-search {
+        border-radius: 0 0 16px 16px;
+        padding: 0.9rem 1.25rem 0.9rem 2.5rem;
+    }
+    
+    .search-combobox::after {
+        right: 0.75rem;
+        font-size: 0.8em;
+    }
 }
 
 .hero {
@@ -367,15 +536,6 @@ body {
     }
 }
 
-/* Add to styles.css */
-.nav-search-container {
-    position: relative;
-    flex: 1 1 600px; /* Update from flex: 0 1 400px */
-    margin: 0 2rem;
-    z-index: 1; /* Add this */
-    max-width: 700px;
-}
-
 .nav-search {
     width: 100%;
     padding: 0.75rem 1.5rem 0.75rem 3rem;
@@ -411,56 +571,8 @@ body {
     pointer-events: none;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-    .nav-search-container {
-        flex: 0 1 300px;
-        margin: 0 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-search-container {
-        order: 3;
-        width: 100%;
-        margin: 1rem 0 0;
-        flex: none;
-    }
-    
-    .nav-container {
-        flex-wrap: wrap;
-    }
-    
-    .nav-links {
-        order: 2;
-    }
-}
-
-/* Add spark animation */
-@keyframes sparkFlash {
-    0%, 100% {
-        opacity: 0.8;
-    }
-    50% {
-        opacity: 1;
-        text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
-    }
-}
-
 .gradient-text span.gradient-accent {
     animation: sparkFlash 6s ease-in-out infinite;
-}
-
-@keyframes gradientFlow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 .search-combobox {
@@ -469,20 +581,6 @@ body {
     align-items: stretch;
     border-radius: 50px;
     overflow: hidden;
-}
-
-.search-category {
-    appearance: none;
-    background: rgba(10, 26, 47, 0.9);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-right: none;
-    color: var(--text-primary);
-    padding: 0.75rem 2rem 0.75rem 1.5rem;
-    cursor: pointer;
-    font-family: var(--font-body);
-    transition: all 0.3s ease, background 0.3s ease; /* Add background transition */
-    backdrop-filter: blur(4px);
-    width: 120px; /* Change from 160px */
 }
 
 .search-category:hover {
@@ -503,9 +601,10 @@ body {
 .search-combobox::after {
     content: "▾";
     position: absolute;
-    left: 140px; /* Was 120px */
+    left: auto;
+    right: 1.25rem;
     top: 50%;
-    transform: translateY(-50%) scale(0.9);
+    transform: translateY(-50%);
     color: var(--gold);
     pointer-events: none;
     z-index: 1;
