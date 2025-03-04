@@ -11,6 +11,14 @@ export class CartManager {
     initEventListeners() {
         DOMHelpers.qs('#cart-icon').addEventListener('click', () => this.toggleCart());
         DOMHelpers.qs('.cart-close').addEventListener('click', () => this.hideCart());
+
+        // Add event listener for dynamically added remove buttons
+        DOMHelpers.qs('#cart-items').addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-item')) {
+                this.removeFromCart(e.target.dataset.id);
+            }
+        });
+
         DOMHelpers.qsa('.add-to-cart').forEach(btn => {
             btn.addEventListener('click', (e) => this.addToCart(e.target.dataset.productId));
         });
@@ -22,12 +30,29 @@ export class CartManager {
 
         const cartItem = this.cart.find(item => item.id === productId) || 
             { ...product, quantity: 0 };
-        
+
         cartItem.quantity++;
         this.inventory[productId].currentStock--;
-        
+
         if (!this.cart.includes(cartItem)) this.cart.push(cartItem);
-        
+
+        this.persistData();
+        ProductManager.renderProducts();
+        this.renderCart();
+    }
+
+    removeFromCart(productId) {
+        const cartItemIndex = this.cart.findIndex(item => item.id === productId);
+        if (cartItemIndex === -1) return;
+
+        const cartItem = this.cart[cartItemIndex];
+
+        // Restore inventory stock
+        this.inventory[productId].currentStock += cartItem.quantity;
+
+        // Remove the item from the cart
+        this.cart.splice(cartItemIndex, 1);
+
         this.persistData();
         ProductManager.renderProducts();
         this.renderCart();
@@ -42,7 +67,7 @@ export class CartManager {
     renderCart() {
         const container = DOMHelpers.qs('#cart-items');
         const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        
+
         container.innerHTML = this.cart.length ? this.cart.map(item => `
             <div class="cart-item">
                 <span>${item.name}</span>
@@ -54,7 +79,7 @@ export class CartManager {
                 </div>
             </div>
         `).join('') : `<p class="empty-cart">Your cart is empty</p>`;
-        
+
         DOMHelpers.qs('#cart-total').textContent = total.toFixed(2);
     }
 
