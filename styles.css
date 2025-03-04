@@ -70,7 +70,13 @@ body {
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, var(--gold) 30%, #FFEEA3 100%);
+    background: linear-gradient(
+        135deg,
+        var(--gold) 25%,
+        #FFEEA3 50%,
+        var(--gold) 75%
+    );
+    background-size: 400% 400%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -78,6 +84,7 @@ body {
     font-size: 4.5rem;
     letter-spacing: -0.03em;
     margin: 0;
+    animation: gradientFlow 8s ease-in-out infinite;
 }
 
 .hero-divider {
@@ -423,5 +430,32 @@ body {
     
     .nav-links {
         order: 2;
+    }
+}
+
+/* Add spark animation */
+@keyframes sparkFlash {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+    }
+}
+
+.gradient-text span.gradient-accent {
+    animation: sparkFlash 2s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
