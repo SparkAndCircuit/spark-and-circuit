@@ -66,6 +66,7 @@ body {
 .hero-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem; /* Added padding to prevent touching edges */
 }
 
 .gradient-text {
@@ -95,6 +96,16 @@ body {
     text-transform: uppercase;
     font-weight: 300;
     opacity: 0.9;
+}
+
+.section {
+    padding: 0 1rem; /* Added padding to prevent touching edges */
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Added padding to prevent touching edges */
 }
 
 .section-title {
