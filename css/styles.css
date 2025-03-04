@@ -10,6 +10,13 @@
     --black: #0F0F0F;
     --electric-blue: #00B4FF;
     --mana-red: #D32F2F;
+    --deep-space: #0A1A2F;
+    --starry-night: #1A2A3F;
+    --mana-flare: #00B4FF;
+    --planeswalker-gold: #FFD700;
+    --eldrazi-corruption: #2A0F47;
+    --lava-flow: #FF3B3F;
+    --mystic-fog: rgba(255, 255, 255, 0.1);
     --text-primary: #FFFFFF;
     --text-secondary: rgba(255, 255, 255, 0.85);
     --font-heading: 'Beleren', sans-serif;
@@ -252,10 +259,6 @@
     }
 }
 
-/* Add to :root */
---electric-blue: #00B4FF;
---mana-red: #D32F2F;
-
 /* Base Styles */
 body {
     background: var(--deep-blue);
@@ -306,4 +309,143 @@ body {
     border-radius: 6px;
     font-weight: 700;
     color: var(--black);
+}
+
+/* Skeleton loading states */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* =====================
+   MODERN GLASS EFFECTS
+   ===================== */
+   .nav {
+    background: rgba(10, 26, 47, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-card, .event-card, .membership-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* =====================
+   DYNAMIC GRADIENTS
+   ===================== */
+.hero {
+    background: radial-gradient(circle at 50% 0%, 
+        var(--electric-blue) 0%, 
+        var(--deep-blue) 60%);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+/* =====================
+   MODERN INTERACTIONS
+   ===================== */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cta-button:hover::after {
+    opacity: 1;
+}
+
+/* =====================
+   NEUOMORPHIC ELEMENTS
+   ===================== */
+.add-to-cart {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    background: linear-gradient(145deg, 
+        rgba(212, 175, 55, 0.15) 0%, 
+        rgba(212, 175, 55, 0.05) 100%);
+}
+
+/* =====================
+   MODERN GRID LAYOUT
+   ===================== */
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 180, 255, 0.15);
+}
+
+/* =====================
+   STICKY SIDEBAR LAYOUT
+   ===================== */
+@media (min-width: 1024px) {
+    .section-container {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+    
+    .section-title {
+        position: sticky;
+        top: 120px;
+        height: min-content;
+    }
+}
+
+/* =====================
+   MODERN FORM DESIGN
+   ===================== */
+.membership-form input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.membership-form input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
