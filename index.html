@@ -1,86 +1,179 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark and Circuit | Game Store & Tournament Hub</title>
+
+    <title>Spark & Circuit | MTG Hub</title>
+
     <link rel="stylesheet" href="styles.css">
+
     <!-- Fonts -->
+
     <link href="https://fonts.cdnfonts.com/css/beleren" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-    <!-- Navbar with Glowing Logo -->
-    <nav class="navbar">
-        <div class="nav-logo">
-            <img src="images/logo.png" alt="Spark & Circuit Logo">
+
+    <!-- Centered Navigation -->
+
+    <nav class="nav">
+
+        <div class="nav-container">
+
+            <img src="images/logo.svg" alt="Spark & Circuit Logo" class="nav-logo">
+
+            <div class="nav-links">
+
+                <a href="#events" class="nav-link">Events</a>
+
+                <a href="#circuit" class="nav-link">Circuit</a>
+
+                <a href="#store" class="nav-link">Store</a>
+
+                <a href="#about" class="nav-link">About</a>
+
+            </div>
+
         </div>
-        <div class="nav-links">
-            <a href="#events">Events</a>
-            <a href="#circuit">Circuit</a>
-            <a href="#products">Products</a>
-            <a href="#contact">Contact</a>
-        </div>
+
     </nav>
 
-    <!-- Hero Section with Spark/Circuit Fusion -->
+
+
+    <!-- Hero Section -->
+
     <section class="hero">
-        <div class="hero-content">
-            <h1>Ignite Your Spark.<br>Join the <span class="circuit-text">Circuit</span>.</h1>
-            <div class="mana-icons">
-                <!-- MTG Mana Color Accents -->
-                <div class="mana-icon" style="background: #F5F5F5;"></div>
-                <div class="mana-icon" style="background: #2196F3;"></div>
-                <div class="mana-icon" style="background: #212121;"></div>
-                <div class="mana-icon" style="background: #FF3B3F;"></div>
-                <div class="mana-icon" style="background: #4CAF50;"></div>
+
+        <div class="hero-container">
+
+            <h1 class="gradient-text">
+
+                <span class="gradient-accent">Spark</span> & Circuit
+
+            </h1>
+
+            <div class="hero-divider"></div>
+
+            <p class="hero-subtitle">Where Magic Meets Competition</p>
+
+            <div class="hero-cta">
+
+                <a href="#events" class="cta-button">Upcoming Events</a>
+
+                <a href="#circuit" class="cta-button-ghost">Leaderboard</a>
+
             </div>
-            <a href="#events" class="cta-button">View Events</a>
+
         </div>
+
     </section>
+
+
+
+    <!-- Featured Events -->
+
+    <section class="section" id="events">
+
+        <div class="section-container">
+
+            <h2 class="section-title">
+
+                <span class="title-decorator"></span>
+
+                Featured Events
+
+                <span class="title-decorator"></span>
+
+            </h2>
+
+            <div class="dynamic-grid" id="events-container">
+
+                <!-- Events will be loaded here dynamically -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
 
     <!-- Circuit Leaderboard -->
-    <section id="circuit" class="circuit-leaderboard">
-        <h2>Circuit Standings</h2>
-        <div class="leaderboard-grid">
-            <div class="leaderboard-entry">
-                <span class="rank">1</span>
-                <span class="player">Jace, Mind Sculptor</span>
-                <span class="points">850⚡</span>
+
+    <section class="section" id="circuit">
+
+        <div class="section-container">
+
+            <h2 class="section-title">
+
+                <span class="title-decorator"></span>
+
+                Circuit Standings
+
+                <span class="title-decorator"></span>
+
+            </h2>
+
+            <div class="table-container">
+
+                <table class="leaderboard-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Rank</th>
+
+                            <th>Player</th>
+
+                            <th>Points</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td><span class="rank-badge">1</span></td>
+
+                            <td>Jace, Mind Sculptor</td>
+
+                            <td>850⚡</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td><span class="rank-badge">2</span></td>
+
+                            <td>Liliana, Dreadhorde</td>
+
+                            <td>790⚡</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
             </div>
-            <div class="leaderboard-entry">
-                <span class="rank">2</span>
-                <span class="player">Liliana, Dreadhorde</span>
-                <span class="points">790⚡</span>
-            </div>
+
         </div>
+
     </section>
 
-    <!-- Featured Products Section -->
-    <section id="products" class="products">
-        <h2>New Arrivals</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="images/boosters.jpg" alt="MTG Boosters">
-                <h3>Wilds of Eldraine Boosters</h3>
-                <p>$4.99 per pack</p>
-            </div>
-            <div class="product-card">
-                <img src="images/playmat.jpg" alt="MTG Playmat">
-                <h3>Limited Edition Playmats</h3>
-                <p>$24.99</p>
-            </div>
-        </div>
-    </section>
+    <script src="app.js"></script>
 
-    <!-- Newsletter Signup -->
-    <section class="newsletter">
-        <h2>Stay in the Circuit</h2>
-        <p>Get event updates, deck tips, and exclusive offers.</p>
-        <form>
-            <input type="email" placeholder="Enter your email">
-            <button type="submit" class="cta-button">Sign Up</button>
-        </form>
-    </section>
 </body>
+
 </html>
