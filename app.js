@@ -55,3 +55,21 @@ function handleRegistration(eventId) {
     console.log(`Registering for event ${eventId}`);
     alert(`Registration for event ${eventId} would be processed here!`);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const searchCategory = document.querySelector('.search-category');
+    const searchInput = document.querySelector('.nav-search');
+    
+    function performSearch() {
+        const category = searchCategory.value;
+        const query = searchInput.value;
+        // Add your search logic here
+        console.log(`Searching ${category} for: ${query}`);
+    }
+    
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') performSearch();
+    });
+    
+    document.querySelector('.search-icon').addEventListener('click', performSearch);
+});

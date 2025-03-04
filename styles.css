@@ -373,6 +373,7 @@ body {
     position: relative;
     flex: 0 1 400px;
     margin: 0 2rem;
+    z-index: 1; /* Add this */
 }
 
 .nav-search {
@@ -380,11 +381,13 @@ body {
     padding: 0.75rem 1.5rem 0.75rem 3rem;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 50px;
+    border-radius: 0 50px 50px 0;
     color: var(--text-primary);
     font-family: var(--font-body);
     transition: all 0.3s ease;
     backdrop-filter: blur(4px);
+    flex: 1;
+    /* Remove duplicate properties */
 }
 
 .nav-search::placeholder {
@@ -457,5 +460,88 @@ body {
     }
     100% {
         background-position: 0% 50%;
+    }
+}
+
+.search-combobox {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.search-category {
+    appearance: none;
+    background: rgba(10, 26, 47, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-right: none;
+    color: var(--text-primary);
+    padding: 0.75rem 2rem 0.75rem 1.5rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: all 0.3s ease, background 0.3s ease; /* Add background transition */
+    backdrop-filter: blur(4px);
+    width: 160px;
+}
+
+.search-category:hover {
+    background: rgba(26, 42, 63, 0.9);
+}
+
+.search-category:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+}
+
+.search-icon {
+    right: 1.5rem;
+    left: auto;
+}
+
+/* Custom dropdown arrow */
+.search-combobox::after {
+    content: "▾";
+    position: absolute;
+    left: 140px; /* Was 120px */
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    color: var(--gold);
+    pointer-events: none;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .search-category {
+        width: 130px;
+        padding: 0.75rem 1.5rem 0.75rem 1rem;
+    }
+    
+    .search-combobox::after {
+        left: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-combobox {
+        flex-direction: column;
+        border-radius: 16px;
+    }
+    
+    .search-category {
+        width: 100%;
+        border-radius: 16px 16px 0 0;
+        border-right: 1px solid rgba(212, 175, 55, 0.3);
+        padding: 0.75rem 1.5rem; /* Adjust padding */
+    }
+    
+    .nav-search {
+        border-radius: 0 0 16px 16px;
+        padding-left: 1.5rem; /* Maintain padding consistency */
+    }
+    
+    .search-combobox::after {
+        left: auto;
+        right: 1rem;
     }
 }
