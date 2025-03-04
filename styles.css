@@ -360,3 +360,68 @@ body {
         width: 30px;
     }
 }
+
+/* Add to styles.css */
+.nav-search-container {
+    position: relative;
+    flex: 0 1 400px;
+    margin: 0 2rem;
+}
+
+.nav-search {
+    width: 100%;
+    padding: 0.75rem 1.5rem 0.75rem 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.nav-search::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.nav-search:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    stroke: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .nav-search-container {
+        flex: 0 1 300px;
+        margin: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-search-container {
+        order: 3;
+        width: 100%;
+        margin: 1rem 0 0;
+        flex: none;
+    }
+    
+    .nav-container {
+        flex-wrap: wrap;
+    }
+    
+    .nav-links {
+        order: 2;
+    }
+}
