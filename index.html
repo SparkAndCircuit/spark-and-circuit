@@ -3,49 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark and Circuit | MTG Game Store & Tournament Hub</title>
+    <title>Spark and Circuit | Game Store & Tournament Hub</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Add MTG-themed font (Beleren) -->
+    <!-- Fonts -->
     <link href="https://fonts.cdnfonts.com/css/beleren" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navbar with Glowing Logo -->
     <nav class="navbar">
         <div class="nav-logo">
-            <img src="images/logo.png" alt="Spark and Circuit Logo">
+            <img src="images/logo.png" alt="Spark & Circuit Logo">
         </div>
         <div class="nav-links">
             <a href="#events">Events</a>
+            <a href="#circuit">Circuit</a>
             <a href="#products">Products</a>
-            <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Spark/Circuit Fusion -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Ignite Your Spark. Join the Circuit.</h1>
-            <p>Your destination for Magic: The Gathering tournaments, singles, and community.</p>
-            <a href="#events" class="cta-button">View Upcoming Events</a>
+            <h1>Ignite Your Spark.<br>Join the <span class="circuit-text">Circuit</span>.</h1>
+            <div class="mana-icons">
+                <!-- MTG Mana Color Accents -->
+                <div class="mana-icon" style="background: #F5F5F5;"></div>
+                <div class="mana-icon" style="background: #2196F3;"></div>
+                <div class="mana-icon" style="background: #212121;"></div>
+                <div class="mana-icon" style="background: #FF3B3F;"></div>
+                <div class="mana-icon" style="background: #4CAF50;"></div>
+            </div>
+            <a href="#events" class="cta-button">View Events</a>
         </div>
     </section>
 
-    <!-- Upcoming Events Section -->
-    <section id="events" class="events">
-        <h2>Upcoming Tournaments</h2>
-        <div class="event-grid">
-            <div class="event-card">
-                <h3>Friday Night Magic</h3>
-                <p>October 20th | 6:00 PM</p>
-                <p>Format: Modern</p>
-                <a href="#" class="event-button">Register Now</a>
+    <!-- Circuit Leaderboard -->
+    <section id="circuit" class="circuit-leaderboard">
+        <h2>Circuit Standings</h2>
+        <div class="leaderboard-grid">
+            <div class="leaderboard-entry">
+                <span class="rank">1</span>
+                <span class="player">Jace, Mind Sculptor</span>
+                <span class="points">850⚡</span>
             </div>
-            <div class="event-card">
-                <h3>Commander Clash</h3>
-                <p>October 22nd | 5:00 PM</p>
-                <p>Bring your best deck!</p>
-                <a href="#" class="event-button">Register Now</a>
+            <div class="leaderboard-entry">
+                <span class="rank">2</span>
+                <span class="player">Liliana, Dreadhorde</span>
+                <span class="points">790⚡</span>
             </div>
         </div>
     </section>
