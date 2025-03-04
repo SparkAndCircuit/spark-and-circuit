@@ -436,16 +436,21 @@ body {
 /* Add spark animation */
 @keyframes sparkFlash {
     0%, 100% {
-        opacity: 0.8;
+        opacity: 0.7;
+        text-shadow: 0 0 2px rgba(212, 175, 55, 0);
+    }
+    25% {
+        opacity: 0.9;
+        text-shadow: 0 0 4px rgba(212, 175, 55, 0.3);
     }
     50% {
-        opacity: 1;
-        text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+        opacity: 0.7;
+        text-shadow: 0 0 2px rgba(212, 175, 55, 0);
     }
 }
 
 .gradient-text span.gradient-accent {
-    animation: sparkFlash 2s ease-in-out infinite;
+    animation: sparkFlash 6s ease-in-out infinite;
 }
 
 @keyframes gradientFlow {
