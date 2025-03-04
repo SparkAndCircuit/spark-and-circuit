@@ -17,7 +17,7 @@
     /* Typography */
     --text-primary: #FFFFFF;
     --text-secondary: rgba(255, 255, 255, 0.85);
-    --font-heading: 'Beleren', serif;
+    --font-heading: 'Beleren', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
 
