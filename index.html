@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spark & Circuit | MTG Hub</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Fonts -->
     <link href="https://fonts.cdnfonts.com/css/beleren" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Centered Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <img src="images/logo.svg" alt="Spark & Circuit Logo" class="nav-logo">
@@ -23,7 +21,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
             <h1 class="gradient-text">
@@ -38,7 +35,6 @@
         </div>
     </section>
 
-    <!-- Featured Events -->
     <section class="section" id="events">
         <div class="section-container">
             <h2 class="section-title">
@@ -46,13 +42,21 @@
                 Featured Events
                 <span class="title-decorator"></span>
             </h2>
-            <div class="dynamic-grid" id="events-container">
-                <!-- Events will be loaded here dynamically -->
-            </div>
+            <div class="dynamic-grid" id="events-container"></div>
         </div>
     </section>
 
-    <!-- Circuit Leaderboard -->
+    <section class="section" id="store">
+        <div class="section-container">
+            <h2 class="section-title">
+                <span class="title-decorator"></span>
+                MTG Store
+                <span class="title-decorator"></span>
+            </h2>
+            <div class="store-grid" id="products-container"></div>
+        </div>
+    </section>
+
     <section class="section" id="circuit">
         <div class="section-container">
             <h2 class="section-title">
@@ -62,29 +66,25 @@
             </h2>
             <div class="table-container">
                 <table class="leaderboard-table">
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Player</th>
-                            <th>Points</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="rank-badge">1</span></td>
-                            <td>Jace, Mind Sculptor</td>
-                            <td>850⚡</td>
-                        </tr>
-                        <tr>
-                            <td><span class="rank-badge">2</span></td>
-                            <td>Liliana, Dreadhorde</td>
-                            <td>790⚡</td>
-                        </tr>
-                    </tbody>
+                    <!-- ... existing leaderboard table ... -->
                 </table>
             </div>
         </div>
     </section>
+
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <h3>Your Cart <span class="cart-close">&times;</span></h3>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+            <button class="cta-button checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div class="cart-icon" id="cart-icon">
+        🛒 <span class="cart-count" id="cart-count">0</span>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>

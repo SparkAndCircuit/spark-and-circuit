@@ -1,0 +1,20 @@
+{
+    "products": [
+        {
+            "id": 101,
+            "name": "Commander Collection",
+            "price": 49.99,
+            "image": "images/commander-collection.jpg",
+            "category": "Precons",
+            "stock": 15
+        },
+        {
+            "id": 102,
+            "name": "Draft Booster Box",
+            "price": 99.99,
+            "image": "images/draft-booster.jpg",
+            "category": "Booster Boxes",
+            "stock": 8
+        }
+    ]
+}
