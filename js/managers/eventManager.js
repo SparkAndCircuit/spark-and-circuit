@@ -1,39 +1,31 @@
-import { DataHelpers, DOMHelpers } from '../lib/helpers.js';
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('data/events.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Events Loaded:", data); // Debugging
+            renderEvents(data.events);
+        })
+        .catch(error => console.error('Error loading events:', error));
+});
 
-export class EventManager {
-    static async initialize() {
-        try {
-            const events = await DataHelpers.fetchData('../data/events.json');
-            this.renderEvents(events);
-        } catch (error) {
-            this.handleError('events-container', error);
-        }
+function renderEvents(events) {
+    const container = document.getElementById("events-container");
+    if (!container) {
+        console.error("Error: events-container element not found");
+        return;
     }
 
-    static renderEvents(events) {
-        const container = DOMHelpers.qs('#events-container');
-        container.innerHTML = events.map(event => `
-            <article class="card event-card ${event.gridSpan === 2 ? 'grid-span-2' : ''}">
-                <div class="event-tag ${event.tag.toLowerCase()}">${event.tag}</div>
-                <h3 class="event-title">${event.title}</h3>
-                <div class="event-details">
-                    <p>${event.date}</p>
-                    <p>${event.format} | ${event.entry}</p>
-                </div>
-                <div class="event-footer">
-                    <div class="event-players">${event.registered} Registered</div>
-                    <button class="btn btn--gold" data-event-id="${event.id}">
-                        ${event.tag === 'Premier' ? 'Register Now' : 'Join'}
-                    </button>
-                </div>
-            </article>
-        `).join('');
-    }
-
-    static handleError(containerId, error) {
-        console.error('Event loading error:', error);
-        DOMHelpers.qs(`#${containerId}`).innerHTML = `
-            <p class="error-message">Failed to load events. Please try again later.</p>
-        `;
-    }
+    container.innerHTML = events.map(event => `
+        <div class="event-card ${event.gridSpan === 2 ? 'grid-span-2' : ''}">
+            <span class="event-tag ${event.tag.toLowerCase()}">${event.tag}</span>
+            <h3 class="event-title">${event.title}</h3>
+            <p class="event-details">${event.date} | ${event.format}</p>
+            <p class="event-entry">${event.entry}</p>
+        </div>
+    `).join('');
 }
