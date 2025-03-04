@@ -1,60 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
-    fetch('data/events.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Events Loaded:", data); // Debugging
-            renderEvents(data.events);
-        })
-        .catch(error => console.error('Error loading events:', error));
-});
+import { DataHelpers, DOMHelpers } from '../lib/helpers.js';
 
-function renderEvents(events) {
-    const storedEvents = DataHelpers.retrieveData('events') || {};
-    const container = document.getElementById("events-container");
-    
-    container.innerHTML = events.map(event => {
-        const registered = storedEvents[event.id]?.registered || 0;
-        return `
-        <div class="event-card ${event.gridSpan === 2 ? 'grid-span-2' : ''}">
-            <span class="event-tag ${event.tag.toLowerCase()}">${event.tag}</span>
-            <h3 class="event-title">${event.title}</h3>
-            <p class="event-details">${event.date} | ${event.format}</p>
-            <p class="event-entry">${event.entry}</p>
-            <div class="event-footer">
-                <button class="cta-button register-btn" 
-                        data-event-id="${event.id}"
-                        ${registered >= event.maxPlayers ? 'disabled' : ''}>
-                    ${registered}/${event.maxPlayers} Registered
-                </button>
-                <p class="event-prizes">🏆 ${event.prizes}</p>
+export class EventManager {
+    static async initialize() {
+        try {
+            const events = await DataHelpers.fetchData('data/events.json');
+            this.renderEvents(events);
+            this.setupRegistration();
+        } catch (error) {
+            console.error('Event Manager Error:', error);
+        }
+    }
+
+    static renderEvents(events) {
+        const container = DOMHelpers.qs('#events-container');
+        container.innerHTML = events.map(event => `
+            <div class="event-card ${event.featured ? 'featured' : ''}">
+                <span class="event-tag ${event.type}">${event.type}</span>
+                <h3>${event.title}</h3>
+                <p class="event-date">📅 ${event.date}</p>
+                <p class="event-format">${event.format}</p>
+                <div class="event-meta">
+                    <span class="entry-fee">${event.entryFee}</span>
+                    <button class="cta-button register-btn" 
+                            data-id="${event.id}"
+                            ${event.remainingSpots === 0 ? 'disabled' : ''}>
+                        ${event.remainingSpots} Spots Left
+                    </button>
+                </div>
             </div>
-        </div>`;
-    }).join('');
+        `).join('');
+    }
 
-    // Registration functionality
-    document.querySelectorAll('.register-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const eventId = e.target.dataset.eventId;
-            const eventData = events.find(ev => ev.id == eventId);
-            const storedEvents = DataHelpers.retrieveData('events') || {};
-            
-            if (!storedEvents[eventId]) {
-                storedEvents[eventId] = { registered: 1 };
-            } else {
-                storedEvents[eventId].registered++;
-            }
-            
-            DataHelpers.persistData('events', storedEvents);
-            e.target.textContent = `${storedEvents[eventId].registered}/${eventData.maxPlayers} Registered`;
-            
-            if (storedEvents[eventId].registered >= eventData.maxPlayers) {
-                e.target.disabled = true;
+    static setupRegistration() {
+        DOMHelpers.qs('#events-container').addEventListener('click', async (e) => {
+            if (e.target.classList.contains('register-btn')) {
+                const eventId = e.target.dataset.id;
+                // Add registration logic
             }
         });
-    });
+    }
 }

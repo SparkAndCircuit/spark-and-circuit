@@ -2,27 +2,23 @@
     "events": [
         {
             "id": 1,
-            "title": "Championship Circuit",
-            "date": "October 28th | 4:00 PM",
+            "title": "Modern Championship",
+            "date": "2024-03-15",
             "format": "Modern",
-            "entry": "$20 Entry",
-            "maxPlayers": 32,
-            "prizes": "1st: $500 + Trophy | Top 8: Circuit Points",
-            "registered": 0,
-            "tag": "Premier",
-            "gridSpan": 2
+            "entryFee": "$25",
+            "prizePool": "$2000",
+            "remainingSpots": 12,
+            "type": "premier"
         },
         {
             "id": 2,
             "title": "Commander Night",
-            "date": "October 22nd | 6:00 PM",
+            "date": "2024-03-20",
             "format": "Commander",
-            "entry": "Free Entry",
-            "maxPlayers": 40,
-            "prizes": "Random Door Prizes",
-            "registered": 0,
-            "tag": "Casual",
-            "gridSpan": 1
+            "entryFee": "Free",
+            "prizePool": "Promo Packs",
+            "remainingSpots": 24,
+            "type": "casual"
         }
     ]
 }

@@ -2,21 +2,17 @@
     "products": [
         {
             "id": 101,
-            "name": "Commander Collection",
-            "price": 49.99,
-            "image": "images/commander-collection.jpg",
-            "category": "Precons",
-            "initialStock": 15,
-            "currentStock": 15
+            "name": "Modern Horizons 3 Booster Box",
+            "price": 249.99,
+            "stock": 8,
+            "image": "images/mh3-box.jpg"
         },
         {
             "id": 102,
-            "name": "Draft Booster Box",
-            "price": 99.99,
-            "image": "images/draft-booster.jpg",
-            "category": "Booster Boxes",
-            "initialStock": 8,
-            "currentStock": 8
+            "name": "Commander Masters Deck",
+            "price": 89.99,
+            "stock": 15,
+            "image": "images/cmd-deck.jpg"
         }
     ]
 }
