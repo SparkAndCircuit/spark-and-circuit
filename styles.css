@@ -62,7 +62,6 @@ body {
 /* Enhanced Search Components */
 .nav-search-container {
     flex: 1 1 auto;
-    min-width: 300px;
     max-width: 600px;
     margin: 0 1.5rem;
     position: relative;
@@ -392,10 +391,6 @@ body {
 @keyframes sparkFlash {
     0%, 100% { opacity: 0.8; }
     50% { opacity: 1; text-shadow: 0 0 8px rgba(212, 175, 55, 0.6); }
-}
-
-.gradient-text span.gradient-accent {
-    animation: sparkFlash 6s ease-in-out infinite;
 }
 
 /* Responsive Design */
