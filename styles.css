@@ -120,17 +120,18 @@ body {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.search-combobox::after {
-    position: absolute;
-    left: calc(100% - 3rem); /* Adjusted positioning */
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--gold);
-    pointer-events: none;
-    z-index: 2;
-    background: rgba(10, 26, 47, 0.5);
-    padding: 0 0.5rem;
-    border-radius: 0 50px 50px 0;
+.search-combobox {
+    position: relative;
+    display: flex;
+    width: 100%; /* Ensure full width */
+    background: linear-gradient(145deg, 
+        rgba(212, 175, 55, 0.3) 0%, 
+        rgba(212, 175, 55, 0.15) 50%, 
+        rgba(212, 175, 55, 0.3) 100%);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    min-width: min(100%, 600px); /* Prevent overflow */
 }
 
 .search-icon {
@@ -424,16 +425,18 @@ body {
         margin: 1rem 0 0;
     }
     .search-combobox {
-        flex-direction: row;
-        background: none;
-        padding: 0;
+        background: linear-gradient(145deg, 
+            rgba(212, 175, 55, 0.25) 0%, 
+            rgba(212, 175, 55, 0.1) 50%, 
+            rgba(212, 175, 55, 0.25) 100%);
+        padding: 1px; /* Reduced padding for small screens */
     }
     .search-category {
-        border-radius: 16px 0 0 16px;
-        flex: 1 1 auto;
+        padding: 0.75rem 1.25rem;
+        min-width: 110px;
     }
     .nav-search {
-        border-radius: 0 16px 16px 0;
+        padding-left: 1.25rem;
     }
     .gradient-text {
         font-size: 2.75rem;
@@ -442,7 +445,8 @@ body {
 
 @media (max-width: 480px) {
     .search-combobox {
-        flex-direction: column;
+        background: none; /* Remove gradient on mobile */
+        border: 1px solid rgba(212, 175, 55, 0.3);
     }
     .search-category {
         border-radius: 16px 16px 0 0;
