@@ -85,11 +85,11 @@ body {
 }
 
 .search-category {
-    appearance: none;
+    appearance: auto;
     background: rgba(10, 26, 47, 0.9);
     border: none;
     color: var(--text-primary);
-    padding: 0.75rem 3rem 0.75rem 1.5rem; /* Increased right padding */
+    padding: 0.75rem 3rem 0.75rem 0.9rem; /* Increased right padding */
     cursor: pointer;
     font-family: var(--font-body);
     transition: all 0.3s ease;
