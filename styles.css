@@ -77,9 +77,11 @@ body {
         rgba(212, 175, 55, 0.3) 0%, 
         rgba(212, 175, 55, 0.15) 50%, 
         rgba(212, 175, 55, 0.3) 100%);
-    /* padding: 2px; */
+    padding: 2px;
     transition: all 0.3s ease;
     width: 100%;
+    overflow: visible;
+    min-width: 200px;
 }
 
 .search-category {
@@ -87,7 +89,7 @@ body {
     background: rgba(10, 26, 47, 0.9);
     border: none;
     color: var(--text-primary);
-    padding: 0.75rem 2.5rem 0.75rem 1.5rem; /* Increased right padding */
+    padding: 0.75rem 3rem 0.75rem 1.5rem; /* Increased right padding */
     cursor: pointer;
     font-family: var(--font-body);
     transition: all 0.3s ease;
@@ -112,26 +114,26 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     transition: all 0.3s ease;
-    min-width: 25ch;
-    flex: 1;
+    min-width: 150px;
+    flex: 1 1 auto;
+    padding-left: 1.5rem;
 }
 
 .nav-search::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.search-combobox {
-    position: relative;
-    display: flex;
-    width: 100%; /* Ensure full width */
-    background: linear-gradient(145deg, 
-        rgba(212, 175, 55, 0.3) 0%, 
-        rgba(212, 175, 55, 0.15) 50%, 
-        rgba(212, 175, 55, 0.3) 100%);
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-    min-width: min(100%, 600px); /* Prevent overflow */
+.search-combobox::after {
+    position: absolute;
+    left: calc(100% - 3rem); /* Adjusted positioning */
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    pointer-events: none;
+    z-index: 2;
+    background: rgba(10, 26, 47, 0.5);
+    padding: 0 0.5rem;
+    border-radius: 0 50px 50px 0;
 }
 
 .search-icon {
@@ -425,18 +427,16 @@ body {
         margin: 1rem 0 0;
     }
     .search-combobox {
-        background: linear-gradient(145deg, 
-            rgba(212, 175, 55, 0.25) 0%, 
-            rgba(212, 175, 55, 0.1) 50%, 
-            rgba(212, 175, 55, 0.25) 100%);
-        padding: 1px; /* Reduced padding for small screens */
+        flex-direction: row;
+        background: none;
+        padding: 0;
     }
     .search-category {
-        padding: 0.75rem 1.25rem;
-        min-width: 110px;
+        border-radius: 16px 0 0 16px;
+        flex: 1 1 auto;
     }
     .nav-search {
-        padding-left: 1.25rem;
+        border-radius: 0 16px 16px 0;
     }
     .gradient-text {
         font-size: 2.75rem;
@@ -445,8 +445,7 @@ body {
 
 @media (max-width: 480px) {
     .search-combobox {
-        background: none; /* Remove gradient on mobile */
-        border: 1px solid rgba(212, 175, 55, 0.3);
+        flex-direction: column;
     }
     .search-category {
         border-radius: 16px 16px 0 0;
