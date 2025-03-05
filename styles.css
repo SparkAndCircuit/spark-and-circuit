@@ -97,7 +97,6 @@ body {
     white-space: nowrap;
     border-radius: 50px 0 0 50px;
     backdrop-filter: blur(4px);
-    box-sizing: border-box; /* Ensure padding is included in width */
     overflow: visible; /* Prevent text clipping */
 }
 
@@ -113,7 +112,6 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     transition: all 0.3s ease;
-    min-width: 150px;
     flex: 1 1 auto;
     padding-left: 1.5rem;
 }
