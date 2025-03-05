@@ -61,12 +61,12 @@ body {
 
 /* Enhanced Search Components */
 .nav-search-container {
-    position: relative;
     flex: 1 1 auto;
-    margin: 0 1.5rem;
-    z-index: 1;
     min-width: 300px;
     max-width: 600px;
+    margin: 0 1.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 .search-combobox {
@@ -87,16 +87,18 @@ body {
     background: rgba(10, 26, 47, 0.9);
     border: none;
     color: var(--text-primary);
-    padding: 0.75rem 2rem 0.75rem 1.5rem;
+    padding: 0.75rem 2.5rem 0.75rem 1.5rem; /* Increased right padding */
     cursor: pointer;
     font-family: var(--font-body);
     transition: all 0.3s ease;
-    min-width: 8ch;
-    max-width: 20ch;
+    min-width: 120px;
+    max-width: 300px; /* Increased max width */
     width: auto;
     white-space: nowrap;
     border-radius: 50px 0 0 50px;
     backdrop-filter: blur(4px);
+    box-sizing: border-box; /* Ensure padding is included in width */
+    overflow: visible; /* Prevent text clipping */
 }
 
 .search-category:hover {
@@ -120,14 +122,17 @@ body {
 }
 
 .search-combobox::after {
+    content: "▾";
     position: absolute;
-    left: calc(100% - 3.5rem);
+    left: calc(100% - 3rem); /* Adjusted positioning */
     top: 50%;
     transform: translateY(-50%);
     color: var(--gold);
     pointer-events: none;
     z-index: 2;
-    transition: opacity 0.3s ease;
+    background: rgba(10, 26, 47, 0.5);
+    padding: 0 0.5rem;
+    border-radius: 0 50px 50px 0;
 }
 
 .search-icon {
