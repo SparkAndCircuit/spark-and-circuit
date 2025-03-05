@@ -111,7 +111,7 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     transition: all 0.3s ease;
-    min-width: 25ch;
+    /* min-width: 25ch; */
     flex: 1;
 }
 
