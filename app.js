@@ -110,8 +110,7 @@ function setupCategoryWidthAdjustment() {
         tempSpan.textContent = option.text;
         const textWidth = tempSpan.offsetWidth;
         
-        // Calculate total width including padding only
-        // const totalWidth = textWidth + padding;
+        // Calculate total width
         const totalWidth = textWidth;
         
         // Apply constrained width
