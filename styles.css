@@ -108,9 +108,8 @@ body {
     height: 100%;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
+    appearance: auto;
     cursor: pointer;
-    /* min-width: 60px; */
     width: auto;
     font-family: var(--font-body);
     font-size: var(--f--1);
@@ -122,10 +121,6 @@ body {
     transition: all 0.2s ease;
     overflow: hidden;
     white-space: nowrap;
-    /* padding-right: 2.5rem !important; */
-    /* New properties for dynamic sizing */
-    /* flex-shrink: 0; /* Prevent shrinking */
-    /* box-sizing: border-box; Better width calculation */
 }
 
 .search-category:hover {
