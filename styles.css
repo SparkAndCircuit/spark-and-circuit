@@ -92,27 +92,27 @@ body {
 
 .search-combobox {
     position: relative;
-    display: inline-flex;
-    border-radius: clamp(25px, 3vw, 50px);
+    display: flex; /* Changed from inline-flex */
     background: linear-gradient(145deg, 
         rgba(212, 175, 55, 0.3) 0%, 
         rgba(212, 175, 55, 0.15) 50%, 
         rgba(212, 175, 55, 0.3) 100%);
-    padding: clamp(1px, 0.2vw, 2px);
+    border-radius: clamp(25px, 3vw, 50px);
+    padding: 2px;
     transition: all 0.3s ease;
     width: 100%;
+    overflow: visible;
+    min-width: 200px;
+    gap: 0; /* Ensure no spacing between elements */
 }
 
 .search-category {
-    background: rgba(10, 26, 47, 0.9);
-    border: none;
-    color: var(--text-primary);
-    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.9rem, 3vw, 3rem);
-    cursor: pointer;
-    font-family: var(--font-body);
-    transition: all 0.3s ease;
-    border-radius: clamp(25px, 3vw, 50px) 0 0 clamp(25px, 3vw, 50px);
-    font-size: var(--f--1);
+    flex-shrink: 0; /* Prevent category from shrinking */
+    width: auto; /* Allow natural width */
+    padding-right: clamp(2rem, 4vw, 3rem); /* More right padding */
+    -webkit-appearance: none; /* Remove default arrow on WebKit */
+    -moz-appearance: none; /* Remove default arrow on Firefox */
+    appearance: none;
 }
 
 .search-category:hover {
@@ -149,11 +149,11 @@ body {
 
 .search-icon {
     position: absolute;
-    right: 1.5rem;
+    right: clamp(1rem, 2vw, 1.5rem);
     top: 50%;
     transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
+    width: clamp(18px, 1.5vw, 20px);
+    height: clamp(18px, 1.5vw, 20px);
     stroke: var(--gold);
     pointer-events: none;
     z-index: 2;
@@ -415,14 +415,19 @@ body {
     }
     
     .search-combobox {
-        flex-direction: column;
+        flex-direction: row; /* Keep horizontal layout */
+        background: linear-gradient(145deg, 
+            rgba(212, 175, 55, 0.3) 0%, 
+            rgba(212, 175, 55, 0.15) 50%, 
+            rgba(212, 175, 55, 0.3) 100%);
     }
     
     .search-category {
-        border-radius: clamp(16px, 3vw, 25px) clamp(16px, 3vw, 25px) 0 0;
+        border-radius: clamp(25px, 3vw, 50px) 0 0 clamp(25px, 3vw, 50px);
+        padding-right: clamp(1.5rem, 4vw, 2rem);
     }
     
     .nav-search {
-        border-radius: 0 0 clamp(16px, 3vw, 25px) clamp(16px, 3vw, 25px);
+        border-radius: 0 clamp(25px, 3vw, 50px) clamp(25px, 3vw, 50px) 0;
     }
 }
