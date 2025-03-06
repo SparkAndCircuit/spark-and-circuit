@@ -85,7 +85,6 @@ function setupCategoryWidthAdjustment() {
     const categorySelect = document.querySelector('.search-category');
     if (!categorySelect) return;
 
-    // Measurement element with proper styling
     const tempSpan = document.createElement('span');
     tempSpan.style.cssText = `
         position: absolute;
@@ -93,46 +92,36 @@ function setupCategoryWidthAdjustment() {
         white-space: nowrap;
         font: ${window.getComputedStyle(categorySelect).font};
         letter-spacing: ${window.getComputedStyle(categorySelect).letterSpacing};
+        padding: 0 2.5rem 0 1.2rem; /* Match select's padding */
     `;
     document.body.appendChild(tempSpan);
 
     const calculateOptimalWidth = () => {
-        // Get ACTUAL padding from both sides
-        const computedStyle = getComputedStyle(categorySelect);
-        const padding = 
-            parseFloat(computedStyle.paddingLeft) +
-            parseFloat(computedStyle.paddingRight);
+        const option = categorySelect.options[categorySelect.selectedIndex];
+        if (!option) return;
 
-        // Measure all options including the selected one
-        const currentText = categorySelect.options[categorySelect.selectedIndex]?.text || '';
-        tempSpan.textContent = currentText;
-        
-        // Calculate width with proper padding
+        // Measure text with actual padding
+        tempSpan.textContent = option.text;
         const textWidth = tempSpan.offsetWidth;
-        const calculatedWidth = Math.min(
-            Math.max(textWidth + padding, 60), // Match CSS min-width
-            300 // Match CSS max-width
-        );
-
-        // Apply width only when different
-        if (Math.abs(parseFloat(categorySelect.style.width) - calculatedWidth) > 2) {
-            categorySelect.style.width = `${calculatedWidth}px`;
-        }
+        
+        // Calculate total width including padding and dropdown arrow space
+        const totalWidth = textWidth + 48; // 48px accounts for padding+arrow
+        
+        // Apply constrained width
+        categorySelect.style.width = `${Math.min(
+            Math.max(totalWidth, 60), // Min width
+            300 // Max width
+        )}px`;
     };
 
     // Initial calculation
     calculateOptimalWidth();
 
-    // Event listeners with proper cleanup
-    const resizeObserver = new ResizeObserver(calculateOptimalWidth);
-    resizeObserver.observe(categorySelect);
-    
+    // Add event listeners
     categorySelect.addEventListener('change', calculateOptimalWidth);
-    window.addEventListener('resize', () => setTimeout(calculateOptimalWidth, 100));
+    window.addEventListener('resize', calculateOptimalWidth);
+    new ResizeObserver(calculateOptimalWidth).observe(categorySelect);
 
-    // Cleanup function (call when needed)
-    return () => {
-        document.body.removeChild(tempSpan);
-        resizeObserver.disconnect();
-    };
+    // Cleanup
+    return () => document.body.removeChild(tempSpan);
 }
