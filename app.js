@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadEvents();
     setupSearch();
-    setupCategoryWidthAdjustment();
+    document.fonts.ready.then(() => {
+        setupCategoryWidthAdjustment();
+    });
 });
 
 async function loadEvents() {
@@ -103,8 +105,11 @@ function setupCategoryWidthAdjustment() {
         });
 
         const maxWidth = Math.max(...widths);
-        const padding = 40; // Account for dropdown arrow and spacing
-        categorySelect.style.width = `${Math.min(Math.max(maxWidth + padding, 80), 200)}px`;
+        const padding = parseFloat(getComputedStyle(categorySelect).paddingRight) * 2;
+        categorySelect.style.width = `${Math.min(
+            Math.max(maxWidth + padding, 60), // Matches CSS min-width
+            200
+        )}px`;
         
         document.body.removeChild(tempSpan);
     };
