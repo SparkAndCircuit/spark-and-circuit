@@ -99,13 +99,19 @@ function setupCategoryWidthAdjustment() {
     const calculateOptimalWidth = () => {
         const option = categorySelect.options[categorySelect.selectedIndex];
         if (!option) return;
-
+    
+        // Get computed padding from both sides
+        const computedStyle = getComputedStyle(categorySelect);
+        const padding = 
+            parseFloat(computedStyle.paddingLeft) +
+            parseFloat(computedStyle.paddingRight);
+    
         // Measure text with actual padding
         tempSpan.textContent = option.text;
         const textWidth = tempSpan.offsetWidth;
         
-        // Calculate total width including padding and dropdown arrow space
-        const totalWidth = textWidth + 48; // 48px accounts for padding+arrow
+        // Calculate total width including padding only
+        const totalWidth = textWidth + padding;
         
         // Apply constrained width
         categorySelect.style.width = `${Math.min(

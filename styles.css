@@ -103,7 +103,7 @@ body {
     background: var(--navy) !important;
     border: none;
     color: var(--text-primary) !important;
-    padding: 0 2rem 0 1.2rem !important;
+    padding: 0 1.75rem 0 1.2rem !important; /* Was 0 2rem 0 1.2rem */
     border-radius: 50px 0 0 50px;
     height: 100%;
     -webkit-appearance: none;
@@ -116,7 +116,7 @@ body {
     font-size: var(--f--1);
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M6 9l6 6 6-6'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
-    background-position: right 0.75rem center;
+    background-position: right 0.75rem center; /* Arrow position remains same */
     background-size: 1rem;
     text-overflow: ellipsis;
     transition: all 0.2s ease;
@@ -125,7 +125,7 @@ body {
     /* padding-right: 2.5rem !important; */
     /* New properties for dynamic sizing */
     /* flex-shrink: 0; /* Prevent shrinking */
-    /* box-sizing: border-box; Better width calculation */ */
+    /* box-sizing: border-box; Better width calculation */
 }
 
 .search-category:hover {
@@ -186,7 +186,7 @@ body {
     }
     
     .search-category {
-        padding: 0 2rem 0 1rem !important;
+        padding: 0 1.25rem 0 1rem !important; /* Was 0 2rem 0 1rem */
         min-width: 90px;
         background-position: right 0.5rem center;
     }
