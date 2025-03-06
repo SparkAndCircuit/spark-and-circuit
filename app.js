@@ -85,39 +85,46 @@ function setupCategoryWidthAdjustment() {
     const categorySelect = document.querySelector('.search-category');
     if (!categorySelect) return;
 
-    const calculateOptimalWidth = () => {
-        const tempSpan = document.createElement('span');
-        tempSpan.style.cssText = `
-            position: absolute;
-            visibility: hidden;
-            white-space: nowrap;
-            font-family: ${window.getComputedStyle(categorySelect).fontFamily};
-            font-size: ${window.getComputedStyle(categorySelect).fontSize};
-        `;
+    // Cache the measurement element
+    let tempSpan = document.createElement('span');
+    tempSpan.style.cssText = `
+        position: absolute;
+        visibility: hidden;
+        white-space: nowrap;
+        font-family: ${window.getComputedStyle(categorySelect).fontFamily};
+        font-size: ${window.getComputedStyle(categorySelect).fontSize};
+    `;
+    document.body.appendChild(tempSpan);
 
-        document.body.appendChild(tempSpan);
-        
-        // Find widest option text
+    const calculateOptimalWidth = () => {
         const options = Array.from(categorySelect.options);
+        if (options.length === 0) return; // Handle empty case
+
+        const padding = parseFloat(getComputedStyle(categorySelect).paddingRight) * 2;
         const widths = options.map(option => {
             tempSpan.textContent = option.text;
             return tempSpan.offsetWidth;
         });
 
         const maxWidth = Math.max(...widths);
-        const padding = parseFloat(getComputedStyle(categorySelect).paddingRight) * 2;
         categorySelect.style.width = `${Math.min(
-            Math.max(maxWidth + padding, 60), // Matches CSS min-width
-            200
+            Math.max(maxWidth + padding, 60), // Match CSS min-width
+            300 // Match CSS max-width
         )}px`;
-        
-        document.body.removeChild(tempSpan);
     };
 
     // Initial calculation
     calculateOptimalWidth();
-    
-    // Recalculate on window resize and selection change
-    window.addEventListener('resize', calculateOptimalWidth);
+
+    // Add debounce to resize handler
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(calculateOptimalWidth, 250);
+    });
+
     categorySelect.addEventListener('change', calculateOptimalWidth);
+
+    // Cleanup measurement element when needed
+    // document.body.removeChild(tempSpan); // Add this later if needed
 }
