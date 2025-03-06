@@ -85,46 +85,54 @@ function setupCategoryWidthAdjustment() {
     const categorySelect = document.querySelector('.search-category');
     if (!categorySelect) return;
 
-    // Cache the measurement element
-    let tempSpan = document.createElement('span');
+    // Measurement element with proper styling
+    const tempSpan = document.createElement('span');
     tempSpan.style.cssText = `
         position: absolute;
         visibility: hidden;
         white-space: nowrap;
-        font-family: ${window.getComputedStyle(categorySelect).fontFamily};
-        font-size: ${window.getComputedStyle(categorySelect).fontSize};
+        font: ${window.getComputedStyle(categorySelect).font};
+        letter-spacing: ${window.getComputedStyle(categorySelect).letterSpacing};
     `;
     document.body.appendChild(tempSpan);
 
     const calculateOptimalWidth = () => {
-        const options = Array.from(categorySelect.options);
-        if (options.length === 0) return; // Handle empty case
+        // Get ACTUAL padding from both sides
+        const computedStyle = getComputedStyle(categorySelect);
+        const padding = 
+            parseFloat(computedStyle.paddingLeft) +
+            parseFloat(computedStyle.paddingRight);
 
-        const padding = parseFloat(getComputedStyle(categorySelect).paddingRight) * 2;
-        const widths = options.map(option => {
-            tempSpan.textContent = option.text;
-            return tempSpan.offsetWidth;
-        });
-
-        const maxWidth = Math.max(...widths);
-        categorySelect.style.width = `${Math.min(
-            Math.max(maxWidth + padding, 60), // Match CSS min-width
+        // Measure all options including the selected one
+        const currentText = categorySelect.options[categorySelect.selectedIndex]?.text || '';
+        tempSpan.textContent = currentText;
+        
+        // Calculate width with proper padding
+        const textWidth = tempSpan.offsetWidth;
+        const calculatedWidth = Math.min(
+            Math.max(textWidth + padding, 60), // Match CSS min-width
             300 // Match CSS max-width
-        )}px`;
+        );
+
+        // Apply width only when different
+        if (Math.abs(parseFloat(categorySelect.style.width) - calculatedWidth) > 2) {
+            categorySelect.style.width = `${calculatedWidth}px`;
+        }
     };
 
     // Initial calculation
     calculateOptimalWidth();
 
-    // Add debounce to resize handler
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(calculateOptimalWidth, 250);
-    });
-
+    // Event listeners with proper cleanup
+    const resizeObserver = new ResizeObserver(calculateOptimalWidth);
+    resizeObserver.observe(categorySelect);
+    
     categorySelect.addEventListener('change', calculateOptimalWidth);
+    window.addEventListener('resize', () => setTimeout(calculateOptimalWidth, 100));
 
-    // Cleanup measurement element when needed
-    // document.body.removeChild(tempSpan); // Add this later if needed
+    // Cleanup function (call when needed)
+    return () => {
+        document.body.removeChild(tempSpan);
+        resizeObserver.disconnect();
+    };
 }

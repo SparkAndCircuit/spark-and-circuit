@@ -111,8 +111,8 @@ body {
     appearance: none;
     cursor: pointer;
     min-width: 60px;
-    width: auto; /* Changed from max-width to width */
     max-width: 300px; /* Increased maximum width */
+    width: auto !important; /* Changed from max-width to width */
     font-family: var(--font-body);
     font-size: var(--f--1);
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M6 9l6 6 6-6'/%3e%3c/svg%3e");
@@ -126,7 +126,7 @@ body {
     padding-right: 2.5rem !important;
     /* New properties for dynamic sizing */
     flex-shrink: 0; /* Prevent shrinking */
-    box-sizing: content-box; /* Better width calculation */
+    box-sizing: border-box; /* Better width calculation */
 }
 
 .search-category:hover {
