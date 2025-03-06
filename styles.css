@@ -1,4 +1,4 @@
-/* styles.css - Fluid Scaling Version */
+/* styles.css - FINAL VERSION */
 :root {
     /* Original Color Scheme */
     --deep-blue: #0A1A2F;
@@ -29,7 +29,6 @@
     --f-4: clamp(2.07rem, 1.60rem + 2.37vw, 3.05rem);
     --f-5: clamp(2.49rem, 1.83rem + 3.28vw, 3.82rem);
 }
-
 
 body {
     background: radial-gradient(ellipse at top, var(--deep-blue) 0%, var(--black) 100%);
@@ -67,7 +66,6 @@ body {
     gap: clamp(1rem, 3vw, 2.5rem);
 }
 
-
 .nav-link {
     color: var(--text-primary);
     text-decoration: none;
@@ -76,74 +74,55 @@ body {
     font-size: var(--f--1);
 }
 
-
 .nav-link:hover {
     color: var(--gold);
 }
 
-/* Fluid Search Components */
+/* ====== Fixed Search Components ====== */
 .nav-search-container {
     flex: 1 1 auto;
+    max-width: min(70vw, 600px);
     margin: 0 clamp(0.5rem, 2vw, 1.5rem);
     position: relative;
-    z-index: 1;
 }
 
 .search-combobox {
-    position: relative;
     display: flex;
     background: linear-gradient(145deg, 
         rgba(212, 175, 55, 0.3) 0%, 
         rgba(212, 175, 55, 0.15) 50%, 
         rgba(212, 175, 55, 0.3) 100%);
     border-radius: 50px;
-    padding: 2px 2px 2px 0;
-    transition: all 0.3s ease;
     height: 48px;
     width: 100%;
     align-items: center;
-    gap: 0;
+    padding: 2px;
 }
 
 .search-category {
-    background: transparent !important;
+    background: var(--navy) !important;
     border: none;
     color: var(--text-primary) !important;
-    padding: 0 2rem 0 1.5rem !important;
-    border-radius: 50px 0 0 50px !important;
+    padding: 0 1.5rem;
+    border-radius: 50px 0 0 50px;
+    height: 100%;
     -webkit-appearance: menulist;
     -moz-appearance: menulist;
     appearance: menulist;
     cursor: pointer;
-    font-family: var(--font-body);
-    min-width: auto !important;
-    height: 100%;
-    width: auto;
-}
-
-.search-category-wrapper {
-    background: rgba(10, 26, 47, 0.9);
-    border-radius: 50px 0 0 50px;
-    height: 100%;
-    display: flex;
-}
-
-.search-category:hover {
-    background: rgba(26, 42, 63, 0.9);
+    min-width: 120px;
 }
 
 .nav-search {
-    border: none;
     background: rgba(255, 255, 255, 0.1);
-    padding: 0 2.5rem 0 1.5rem !important;
-    border-radius: 0 50px 50px 0;
+    border: none;
+    padding: 0 2.5rem 0 1.5rem;
     color: var(--text-primary);
-    font-family: var(--font-body);
     font-size: var(--f--1);
     flex: 1;
     height: 100%;
+    border-radius: 0 50px 50px 0;
 }
-
 
 .nav-search::placeholder {
     color: rgba(255, 255, 255, 0.6);
@@ -151,27 +130,43 @@ body {
 
 .search-icon {
     position: absolute;
-    right: 1rem;
+    right: 1.25rem;
     top: 50%;
     transform: translateY(-50%);
     width: 24px;
     height: 24px;
     stroke: var(--gold);
     pointer-events: none;
-    z-index: 2;
 }
 
-/* Interactive States */
 .search-combobox:focus-within {
     box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
 }
 
-.search-category:focus,
-.nav-search:focus {
-    outline: none;
+/* Mobile Fixes */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+    
+    .nav-search-container {
+        order: 2;
+        width: 100%;
+        margin: 1rem 0 0;
+        max-width: 100%;
+    }
+    
+    .search-combobox {
+        height: 44px;
+    }
+    
+    .search-category {
+        min-width: 110px;
+        padding: 0 1rem;
+    }
 }
 
-/* Hero Section */
+/* ====== Preserved Original Styles Below ====== */
 .hero {
     text-align: center;
     padding: clamp(4rem, 12vw, 8rem) 1rem;
@@ -203,7 +198,6 @@ body {
     margin: clamp(1rem, 3vw, 2rem) auto;
 }
 
-
 .hero-subtitle {
     font-size: clamp(0.9rem, 1.25vw, 1.1rem);
     color: var(--text-secondary);
@@ -213,7 +207,6 @@ body {
     font-weight: 300;
 }
 
-/* Sections */
 .section {
     position: relative;
     padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 1rem);
@@ -254,7 +247,6 @@ body {
     opacity: 0.6;
 }
 
-/* Cards & Components */
 .dynamic-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
@@ -299,8 +291,6 @@ body {
     color: var(--black);
 }
 
-/* Buttons */
-
 .card-button {
     background: var(--gold);
     color: var(--black);
@@ -310,12 +300,10 @@ body {
     border-radius: 6px;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .card-button:hover {
-    opacity: 1;
     box-shadow: 0 0 12px var(--gold);
     filter: brightness(1.1);
 }
@@ -354,7 +342,6 @@ body {
     box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
 }
 
-/* Leaderboard Table - Original Styling */
 .table-container {
     background: var(--deep-blue);
     border-radius: 16px;
@@ -392,50 +379,8 @@ body {
     font-weight: 700;
 }
 
-/* Animations */
 @keyframes gradientFlow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-}
-
-@keyframes sparkFlash {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; text-shadow: 0 0 8px rgba(212, 175, 55, 0.6); }
-}
-
-@media (max-width: 768px) {
-    .nav-container {
-        flex-wrap: wrap;
-    }
-    
-    .nav-search-container {
-        order: 2;
-        width: 100%;
-        margin: 1rem 0 0;
-    }
-    
-    .search-combobox {
-        flex-direction: row; /* Keep horizontal layout */
-        background: linear-gradient(145deg, 
-            rgba(212, 175, 55, 0.3) 0%, 
-            rgba(212, 175, 55, 0.15) 50%, 
-            rgba(212, 175, 55, 0.3) 100%);
-        height: 44px;
-    }
-    
-    .search-category {
-        border-radius: clamp(25px, 3vw, 50px) 0 0 clamp(25px, 3vw, 50px);
-        padding-right: clamp(1.5rem, 4vw, 2rem);
-        padding: 0 1rem !important;
-    }
-    
-    .nav-search {
-        border-radius: 0 clamp(25px, 3vw, 50px) clamp(25px, 3vw, 50px) 0;
-    }
-
-    .search-category {
-        min-width: 110px;
-        padding: 0.75rem 1rem;
-    }
 }
