@@ -1,0 +1,28 @@
+{
+    "products": [
+        {
+            "id": 101,
+            "title": "Phyrexia: All Will Be One Bundle",
+            "category": "sealed",
+            "price": "$44.99",
+            "description": "10 Set Boosters + exclusive promo card and accessories",
+            "stock": "In Stock"
+        },
+        {
+            "id": 102,
+            "title": "Sol Ring (Retro Frame)",
+            "category": "singles",
+            "price": "$12.99",
+            "description": "Commander Legends: Battle for Baldur's Gate Retro Frame Foil",
+            "condition": "NM"
+        },
+        {
+            "id": 103,
+            "title": "Dragon Shield Sleeves - Jet",
+            "category": "accessories",
+            "price": "$11.99",
+            "description": "100-count matte black card sleeves",
+            "stock": "Low Stock"
+        }
+    ]
+}

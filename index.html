@@ -13,22 +13,24 @@
         <div class="nav-container">
             <img src="images/logo.svg" alt="Spark & Circuit Logo" class="nav-logo">
             
-            <!-- Simplified Search Component -->
+            <!-- Replace the existing nav-search-container div with this -->
             <div class="nav-search-container">
-                <div class="search-combobox">
-                    <select class="search-category">
+                <form action="search.html" method="GET" class="search-combobox">
+                    <select class="search-category" name="category">
                         <option value="all">All</option>
-                        <option value="sealed">Accessories</option>
                         <option value="events">Events</option>
-                        <option value="singles">Sealed Products</option>
-                        <option value="accessories">Singles</option>
+                        <option value="sealed">Sealed Products</option>
+                        <option value="singles">Singles</option>
+                        <option value="accessories">Accessories</option>
                     </select>
-                    <input type="text" placeholder="Search Spark & Circuit..." class="nav-search">
-                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                    </svg>
-                </div>
+                    <input type="text" name="query" placeholder="Search Spark & Circuit..." class="nav-search">
+                    <button type="submit" class="search-icon-button">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                </form>
             </div>
 
             <div class="nav-links">

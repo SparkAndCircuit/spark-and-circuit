@@ -159,13 +159,20 @@ body {
     pointer-events: none;
 }
 
+.search-icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .search-combobox:focus-within {
     box-shadow: 0 0 16px rgba(212, 175, 55, 0.4),
                 0 0 0 2px rgba(212, 175, 55, 0.3);
-    /* background: linear-gradient(145deg, 
-        rgba(212, 175, 55, 0.4) 0%, 
-        rgba(212, 175, 55, 0.25) 50%, 
-        rgba(212, 175, 55, 0.4) 100%); */
 }
 
 /* Mobile Fixes */
@@ -409,4 +416,25 @@ body {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+/* ====================== */
+
+.search-result-card {
+    background: var(--navy);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.search-result-type {
+    color: var(--gold);
+    font-size: var(--f--1);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.search-result-card h3 {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
 }

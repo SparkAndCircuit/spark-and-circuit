@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results | Spark & Circuit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/beleren" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <img src="images/logo.svg" alt="Spark & Circuit Logo" class="nav-logo">
+            
+            <div class="nav-search-container">
+                <form action="search.html" method="GET" class="search-combobox">
+                    <select class="search-category" name="category">
+                        <option value="all">All</option>
+                        <option value="events">Events</option>
+                        <option value="sealed">Sealed Products</option>
+                        <option value="singles">Singles</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                    <input type="text" name="query" placeholder="Search Spark & Circuit..." class="nav-search">
+                    <button type="submit" class="search-icon-button">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+    
+            <div class="nav-links">
+                <a href="#events" class="nav-link">Events</a>
+                <a href="#circuit" class="nav-link">Circuit</a>
+                <a href="#store" class="nav-link">Store</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section" id="search-results">
+        <div class="section-container">
+            <h2 class="section-title">
+                <span class="title-decorator"></span>
+                Search Results
+                <span class="title-decorator"></span>
+            </h2>
+            <div class="dynamic-grid" id="results-container"></div>
+            <p id="no-results" class="hero-subtitle" style="display: none;">No results found</p>
+        </div>
+    </section>
+
+    <script src="search.js"></script>
+</body>
+</html>
