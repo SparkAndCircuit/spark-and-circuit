@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all functionality
     loadEvents();
     setupSearch();
     setupCategoryWidthAdjustment();
@@ -84,23 +83,36 @@ function setupCategoryWidthAdjustment() {
     const categorySelect = document.querySelector('.search-category');
     if (!categorySelect) return;
 
-    const adjustWidth = () => {
+    const calculateOptimalWidth = () => {
         const tempSpan = document.createElement('span');
-        Object.assign(tempSpan.style, {
-            position: 'absolute',
-            visibility: 'hidden',
-            whiteSpace: 'nowrap',
-            fontSize: window.getComputedStyle(categorySelect).fontSize,
-            fontFamily: window.getComputedStyle(categorySelect).fontFamily
-        });
-        
-        tempSpan.textContent = categorySelect.options[categorySelect.selectedIndex].text;
+        tempSpan.style.cssText = `
+            position: absolute;
+            visibility: hidden;
+            white-space: nowrap;
+            font-family: ${window.getComputedStyle(categorySelect).fontFamily};
+            font-size: ${window.getComputedStyle(categorySelect).fontSize};
+        `;
+
         document.body.appendChild(tempSpan);
-        categorySelect.style.width = `${tempSpan.offsetWidth + 32}px`;
+        
+        // Find widest option text
+        const options = Array.from(categorySelect.options);
+        const widths = options.map(option => {
+            tempSpan.textContent = option.text;
+            return tempSpan.offsetWidth;
+        });
+
+        const maxWidth = Math.max(...widths);
+        const padding = 40; // Account for dropdown arrow and spacing
+        categorySelect.style.width = `${Math.min(Math.max(maxWidth + padding, 80), 200)}px`;
+        
         document.body.removeChild(tempSpan);
     };
 
-    // Initial adjustment and change handler
-    adjustWidth();
-    categorySelect.addEventListener('change', adjustWidth);
+    // Initial calculation
+    calculateOptimalWidth();
+    
+    // Recalculate on window resize and selection change
+    window.addEventListener('resize', calculateOptimalWidth);
+    categorySelect.addEventListener('change', calculateOptimalWidth);
 }
