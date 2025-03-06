@@ -144,6 +144,11 @@ body {
     border-radius: 0 50px 50px 0;
 }
 
+.nav-search:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 .nav-search::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
@@ -160,7 +165,12 @@ body {
 }
 
 .search-combobox:focus-within {
-    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.4),
+                0 0 0 2px rgba(212, 175, 55, 0.3);
+    background: linear-gradient(145deg, 
+        rgba(212, 175, 55, 0.4) 0%, 
+        rgba(212, 175, 55, 0.25) 50%, 
+        rgba(212, 175, 55, 0.4) 100%);
 }
 
 /* Mobile Fixes */
