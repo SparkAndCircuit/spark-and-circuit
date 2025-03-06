@@ -110,7 +110,7 @@ body {
     -moz-appearance: none;
     appearance: none;
     cursor: pointer;
-    min-width: 60px;
+    /* min-width: 60px; */
     width: auto;
     font-family: var(--font-body);
     font-size: var(--f--1);
@@ -124,8 +124,8 @@ body {
     white-space: nowrap;
     /* padding-right: 2.5rem !important; */
     /* New properties for dynamic sizing */
-    flex-shrink: 0; /* Prevent shrinking */
-    box-sizing: border-box; /* Better width calculation */
+    /* flex-shrink: 0; /* Prevent shrinking */
+    /* box-sizing: border-box; Better width calculation */ */
 }
 
 .search-category:hover {
