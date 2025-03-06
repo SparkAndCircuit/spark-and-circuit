@@ -92,62 +92,29 @@ body {
 
 .search-combobox {
     position: relative;
-    display: flex; /* Changed from inline-flex */
+    display: flex;
     background: linear-gradient(145deg, 
         rgba(212, 175, 55, 0.3) 0%, 
         rgba(212, 175, 55, 0.15) 50%, 
         rgba(212, 175, 55, 0.3) 100%);
-    border-radius: clamp(25px, 3vw, 50px);
+    border-radius: 50px;
     padding: 2px;
     transition: all 0.3s ease;
     width: 100%;
-    overflow: visible;
-    min-width: 200px;
-    gap: 0; /* Ensure no spacing between elements */
 }
 
 .search-category {
-    flex-shrink: 0; /* Prevent category from shrinking */
-    width: auto; /* Allow natural width */
-    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 3vw, 1.5rem) clamp(0.5rem, 1vw, 0.75rem) clamp(0.9rem, 2vw, 1.2rem);
-    -webkit-appearance: none; /* Remove default arrow on WebKit */
-    -moz-appearance: none; /* Remove default arrow on Firefox */
-    appearance: none;
-    background: transparent !important;
+    background: rgba(10, 26, 47, 0.9) !important;
+    border: none;
+    color: var(--text-primary) !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px 0 0 50px;
+    -webkit-appearance: menulist;
+    -moz-appearance: menulist;
+    appearance: menulist;
+    cursor: pointer;
+    font-family: var(--font-body);
     min-width: 120px;
-}
-
-.search-category-wrapper {
-    position: relative;
-    flex-shrink: 0;
-    background: rgba(10, 26, 47, 0.9);
-    border-radius: clamp(25px, 3vw, 50px) 0 0 clamp(25px, 3vw, 50px);
-}
-
-.search-category-wrapper::after {
-    content: "▾";
-    position: absolute;
-    right: clamp(0.5rem, 1.5vw, 1rem);
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--gold);
-    font-size: 0.9em;
-    pointer-events: none;
-}
-
-.search-combobox::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(145deg, 
-        rgba(212, 175, 55, 0.3) 0%, 
-        rgba(212, 175, 55, 0.15) 50%, 
-        rgba(212, 175, 55, 0.3) 100%);
-    border-radius: inherit;
-    z-index: 0;
 }
 
 .search-category:hover {
@@ -157,12 +124,12 @@ body {
 .nav-search {
     border: none;
     background: rgba(255, 255, 255, 0.1);
-    padding: clamp(0.5rem, 1vw, 0.9rem) clamp(1rem, 3vw, 3rem);
-    border-radius: 0 clamp(25px, 3vw, 50px) clamp(25px, 3vw, 50px) 0;
+    padding: 0.9rem 1.5rem;
+    border-radius: 0 50px 50px 0;
     color: var(--text-primary);
     font-family: var(--font-body);
     font-size: var(--f--1);
-    padding-left: clamp(1rem, 2vw, 1.5rem);
+    flex: 1;
 }
 
 
@@ -170,26 +137,13 @@ body {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.search-combobox::after {
-    position: absolute;
-    left: calc(100% - 3rem); /* Adjusted positioning */
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--gold);
-    pointer-events: none;
-    z-index: 2;
-    background: rgba(10, 26, 47, 0.5);
-    padding: 0 0.5rem;
-    border-radius: 0 50px 50px 0;
-}
-
 .search-icon {
     position: absolute;
-    right: clamp(0.75rem, 2vw, 1.25rem);
+    right: 1.25rem;
     top: 50%;
     transform: translateY(-50%);
-    width: clamp(18px, 1.5vw, 20px);
-    height: clamp(18px, 1.5vw, 20px);
+    width: 20px;
+    height: 20px;
     stroke: var(--gold);
     pointer-events: none;
     z-index: 2;
@@ -447,7 +401,6 @@ body {
         order: 2;
         width: 100%;
         margin: 1rem 0 0;
-        max-width: 100%;
     }
     
     .search-combobox {
@@ -468,8 +421,8 @@ body {
     }
 
     .search-category {
-        min-width: 100px;
-        padding: 0.75rem 2rem 0.75rem 1rem;
+        min-width: 110px;
+        padding: 0.75rem 1rem;
     }
     .search-category-wrapper::after {
         right: 0.75rem;
