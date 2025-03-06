@@ -135,7 +135,7 @@ body {
 .search-category option {
     background: var(--navy);
     color: var(--text-primary);
-    padding: 0.5rem 1rem;
+    /* padding: 0.5rem 1rem; */
 }
 
 .nav-search {
