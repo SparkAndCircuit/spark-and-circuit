@@ -150,7 +150,7 @@ body {
 
 .search-icon {
     position: absolute;
-    right: 1.25rem;
+    right: 0.1rem;
     top: 50%;
     transform: translateY(-50%);
     width: 24px;
@@ -481,4 +481,18 @@ body {
     padding: 0.25rem 0.75rem;
     border-radius: 4px;
     font-weight: 500;
+}
+
+.nav-logo-link {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo-link:hover {
+    transform: scale(1.05);
+}
+
+.nav-logo-link:active {
+    transform: scale(0.95);
 }
