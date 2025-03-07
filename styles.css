@@ -170,6 +170,10 @@ body {
     transform: translateY(-50%);
 }
 
+.search-icon-button .search-icon {
+    pointer-events: auto !important; /* Fix click target */
+}
+
 .search-combobox:focus-within {
     box-shadow: 0 0 16px rgba(212, 175, 55, 0.4),
                 0 0 0 2px rgba(212, 175, 55, 0.3);

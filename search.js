@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const category = params.get('category') || 'all';
     
     performSearch(query, category);
+    setupCategoryWidthAdjustment(); // Add this line
 });
 
 async function performSearch(query, category) {
@@ -78,4 +79,39 @@ function displayResults(results) {
             ${result.description ? `<p>${result.description}</p>` : ''}
         </article>
     `).join('');
+}
+
+// Add this entire function to search.js
+function setupCategoryWidthAdjustment() {
+    const categorySelect = document.querySelector('.search-category');
+    if (!categorySelect) return;
+
+    const tempSpan = document.createElement('span');
+    tempSpan.style.cssText = `
+        position: absolute;
+        visibility: hidden;
+        white-space: nowrap;
+        font: ${window.getComputedStyle(categorySelect).font};
+        letter-spacing: ${window.getComputedStyle(categorySelect).letterSpacing};
+        padding: 0 2.5rem 0 1.2rem;
+    `;
+    document.body.appendChild(tempSpan);
+
+    const calculateOptimalWidth = () => {
+        const option = categorySelect.options[categorySelect.selectedIndex];
+        if (!option) return;
+        
+        tempSpan.textContent = option.text;
+        const textWidth = tempSpan.offsetWidth;
+        
+        categorySelect.style.width = `${Math.min(
+            Math.max(textWidth, 60),
+            300
+        )}px`;
+    };
+
+    calculateOptimalWidth();
+    categorySelect.addEventListener('change', calculateOptimalWidth);
+    window.addEventListener('resize', calculateOptimalWidth);
+    new ResizeObserver(calculateOptimalWidth).observe(categorySelect);
 }

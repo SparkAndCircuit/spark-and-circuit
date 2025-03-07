@@ -16,11 +16,11 @@
             <div class="nav-search-container">
                 <form action="search.html" method="GET" class="search-combobox">
                     <select class="search-category" name="category">
-                        <option value="all">All</option>
-                        <option value="events">Events</option>
-                        <option value="sealed">Sealed Products</option>
-                        <option value="singles">Singles</option>
-                        <option value="accessories">Accessories</option>
+                        <option value="all" <%= (category === 'all') ? 'selected' : '' %>>All</option>
+                        <option value="events" <%= (category === 'events') ? 'selected' : '' %>>Events</option>
+                        <option value="sealed" <%= (category === 'sealed') ? 'selected' : '' %>>Sealed Products</option>
+                        <option value="singles" <%= (category === 'singles') ? 'selected' : '' %>>Singles</option>
+                        <option value="accessories" <%= (category === 'accessories') ? 'selected' : '' %>>Accessories</option>
                     </select>
                     <input type="text" name="query" placeholder="Search Spark & Circuit..." class="nav-search">
                     <button type="submit" class="search-icon-button">
