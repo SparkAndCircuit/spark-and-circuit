@@ -29,10 +29,32 @@ function renderEvents(events) {
         <article class="event-card ${event.gridSpan === 2 ? 'grid-span-2' : ''}">
             <div class="event-tag ${event.tag.toLowerCase()}">${event.tag}</div>
             <h3 class="event-title">${event.title}</h3>
+            
             <div class="event-details">
-                <p>${event.date}</p>
-                <p>${event.format} | ${event.entry}</p>
+                <p class="event-detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    ${event.date}
+                </p>
+                <p class="event-detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    ${event.format}
+                </p>
+                <p class="event-detail">
+                    <span class="event-price">${event.entry}</span>
+                </p>
             </div>
+            
+            ${event.description ? `
+            <p class="event-description">
+                ${event.description}
+            </p>` : ''}
+            
             <div class="event-footer">
                 <div class="event-players">${event.registered} Registered</div>
                 <button class="card-button" data-event-id="${event.id}">
@@ -41,8 +63,7 @@ function renderEvents(events) {
             </div>
         </article>
     `).join('');
-
-    // Delegated event listener for better performance
+    
     container.addEventListener('click', handleCardButtonClick);
 }
 
