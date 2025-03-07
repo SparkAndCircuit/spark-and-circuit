@@ -72,11 +72,45 @@ function displayResults(results) {
         <article class="search-result-card">
             <div class="search-result-type">${result.type}</div>
             <h3>${result.title}</h3>
-            ${result.format ? `<p>Format: ${result.format}</p>` : ''}
-            ${result.date ? `<p>Date: ${result.date}</p>` : ''}
-            ${result.price ? `<p>Price: ${result.price}</p>` : ''}
-            ${result.stock ? `<p>Stock: ${result.stock}</p>` : ''}
-            ${result.description ? `<p>${result.description}</p>` : ''}
+            
+            <div class="search-result-details">
+                ${result.format ? `
+                <p class="search-result-detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    ${result.format}
+                </p>` : ''}
+                
+                ${result.date ? `
+                <p class="search-result-detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    ${result.date}
+                </p>` : ''}
+                
+                ${result.price ? `
+                <p class="search-result-detail">
+                    <span class="search-result-price">${result.price}</span>
+                </p>` : ''}
+                
+                ${result.stock ? `
+                <p class="search-result-detail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                            d="M5 13l4 4L19 7"/>
+                    </svg>
+                    ${result.stock}
+                </p>` : ''}
+            </div>
+            
+            ${result.description ? `
+            <p class="search-result-description">
+                ${result.description}
+            </p>` : ''}
         </article>
     `).join('');
 }
